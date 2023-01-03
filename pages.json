@@ -1,0 +1,237 @@
+{
+	"pages": [{
+		"path": "pages/index/index",
+		"style": {
+			"navigationBarTitleText": "发现"
+		}
+	}    ,{
+            "path" : "pages/record/record",
+            "style" :                                                                                    
+            {
+                "navigationBarTitleText": "登记",
+                "enablePullDownRefresh": false
+            }
+            
+        }
+        ,{
+            "path" : "pages/community/community",
+            "style" :                                                                                    
+            {
+                "navigationBarTitleText": "社区",
+                "enablePullDownRefresh": false
+            }
+            
+        }
+        ,{
+            "path" : "pages/my/my",
+            "style" :                                                                                    
+            {
+                "navigationBarTitleText": "我的",
+                "enablePullDownRefresh": false
+            }
+            
+        }
+        ,{
+            "path" : "pages/analyze/analyze",
+            "style" :                                                                                    
+            {
+                "navigationBarTitleText": "分析",
+                "enablePullDownRefresh": false
+            }
+            
+        }
+        ,{
+            "path" : "pages/index/shenbao/shenbao",
+            "style" :                                                                                    
+            {
+                "navigationBarTitleText": "项目申报",
+                "enablePullDownRefresh": false
+            }
+            
+        }
+        ,{
+            "path" : "pages/index/baoming/baoming",
+            "style" :                                                                                    
+            {
+                "navigationBarTitleText": "项目报名",
+                "enablePullDownRefresh": false
+            }
+            
+        }
+        ,{
+            "path" : "pages/index/wodexiangmu/wodexiangmu",
+            "style" :                                                                                    
+            {
+                "navigationBarTitleText": "我的项目",
+                "enablePullDownRefresh": false
+            }
+            
+        }
+        ,{
+            "path" : "pages/record/trash/trash",
+            "style" :                                                                                    
+            {
+                "navigationBarTitleText": "生活垃圾",
+                "enablePullDownRefresh": false
+            }
+            
+        }
+        ,{
+            "path" : "pages/analyze/fenxi2/fenxi2",
+            "style" :                                                                                    
+            {
+                "navigationBarTitleText": "分析",
+                "enablePullDownRefresh": false
+            }
+            
+        }
+        ,{
+            "path" : "pages/analyze/fenxi3/fenxi3",
+            "style" :                                                                                    
+            {
+                "navigationBarTitleText": "分析",
+                "enablePullDownRefresh": false
+            }
+            
+        }
+		,{
+		    "path" : "pages/analyze/fenxi1/fenxi1",
+		    "style" :                                                                                    
+		    {
+		        "navigationBarTitleText": "分析",
+		        "enablePullDownRefresh": false
+		    }
+		    
+		}
+        ,{
+            "path" : "pages/analyze/suggestion/suggestion",
+            "style" :                                                                                    
+            {
+                "navigationBarTitleText": "建议",
+                "enablePullDownRefresh": false
+            }
+            
+        }
+        ,{
+            "path" : "pages/community/jiangli/jiangli",
+            "style" :                                                                                    
+            {
+                "navigationBarTitleText": "奖励",
+                "enablePullDownRefresh": false
+            }
+            
+        }
+        ,{
+            "path" : "pages/community/jiangli/myprize/myprize",
+            "style" :                                                                                    
+            {
+                "navigationBarTitleText": "我的奖励",
+                "enablePullDownRefresh": false
+            }
+            
+        }
+        ,{
+            "path" : "pages/record/trash/zhiwan/zhiwan",
+            "style" :                                                                                    
+            {
+                "navigationBarTitleText": "",
+                "enablePullDownRefresh": false
+            }
+            
+        }
+        ,{
+            "path" : "pages/record/trash/kuaizi/kuaizi",
+            "style" :                                                                                    
+            {
+                "navigationBarTitleText": "",
+                "enablePullDownRefresh": false
+            }
+            
+        }
+        ,{
+            "path" : "pages/record/trash/waimaihe/waimaihe",
+            "style" :                                                                                    
+            {
+                "navigationBarTitleText": "",
+                "enablePullDownRefresh": false
+            }
+            
+        }
+        
+        ,{
+            "path" : "pages/record/trash/kuaidihe-large/kuaidihe-large",
+            "style" :                                                                                    
+            {
+                "navigationBarTitleText": "",
+                "enablePullDownRefresh": false
+            }
+            
+        }
+        ,{
+            "path" : "pages/record/trash/kuadihe-small/kuadihe-small",
+            "style" :                                                                                    
+            {
+                "navigationBarTitleText": "",
+                "enablePullDownRefresh": false
+            }
+            
+        }
+        ,{
+            "path" : "pages/record/trash/suliaoping/suliaoping",
+            "style" :                                                                                    
+            {
+                "navigationBarTitleText": "",
+                "enablePullDownRefresh": false
+            }
+            
+        }
+        ,{
+            "path" : "pages/record/trash/kuaidixinfeng/kuaidixinfeng",
+            "style" :                                                                                    
+            {
+                "navigationBarTitleText": "",
+                "enablePullDownRefresh": false
+            }
+            
+        }
+    ],
+	"style": {
+		"app-plus": {
+			"animationType": "fade-in",
+			"animationDuration": 3000
+		}
+	},
+	"globalStyle": {
+		"navigationBarTextStyle": "black",
+		"navigationBarTitleText": "uni-app",
+		"navigationBarBackgroundColor": "#F8F8F8",
+		"backgroundColor": "#F8F8F8",
+		"app-plus": {
+			"background": "#efeff4"
+		}
+	},
+	"tabBar": {
+		"list": [
+			{
+				"pagePath": "pages/index/index",
+				"text": "发现"
+			},
+			{
+				"pagePath": "pages/record/record",
+				"text": "登记"
+			},
+			{
+				"pagePath": "pages/analyze/analyze",
+				"text": "分析"
+			},
+			{
+				"pagePath": "pages/community/community",
+				"text": "社区"
+			},
+			{
+				"pagePath": "pages/my/my",
+				"text": "我的"
+			}
+		]
+	}
+}
