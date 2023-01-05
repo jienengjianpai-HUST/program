@@ -1,9 +1,10 @@
 <template>
-    <view class="myprize-container">
+	
+    <view class="myprize-container gradient" style="position: fixed; top: 0; left: 0; right: 0; bottom: 0" >
     	<view class="title-myprize">
     		<text >我的奖励</text>
     	</view>
-    </view>
+
 	
 	
 	<view class="jiangli-container" style="height: 200rpx;">
@@ -48,6 +49,10 @@
 		</view>		
 	</view>
 	
+	
+	
+	
+	</view>
 </template>
 
 <script>

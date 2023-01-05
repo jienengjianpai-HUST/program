@@ -1,6 +1,6 @@
 <template>
-    <view class="datainput-container">
-        <view class="title">
+    <view class="datainput-container gradient"  style="position: fixed; top: 0; left: 0; right: 0; bottom: 0">
+        <view class="title text">
         	数据输入
         </view>
 		
@@ -11,8 +11,8 @@
 		</view>
 		
 		<view class="button-down">
-			<button @click="toTrash">上一项</button>
-			<button @click="toKuaizi">下一项</button>
+			<button class="button" @click="toTrash">上一项</button>
+			<button class="button" @click="toKuaizi">下一项</button>
 		</view>
 	</view>
 </template>
@@ -45,7 +45,7 @@
 
 <style lang="scss">
 .title{
-	border: 3rpx solid;
+	border: 5rpx solid;
 	text-align: center;
 	margin: 100rpx;
 	padding: 50rpx;

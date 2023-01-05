@@ -1,10 +1,10 @@
 <template>
-	<view class="community-container">
+	<view class="community-container gradient"  style="position: fixed; top: 0; left: 0; right: 0; bottom: 0">
 		<view class="button_top">
-			<button>社区</button>
-			<button @click="toPageJiangli">奖励</button>
+			<button class="button">社区</button>
+			<button class="button" @click="toPageJiangli">奖励</button>
 		</view>
-		<view class="title-container">
+		<view class="title-container text">
 			社区公告
 		</view>
 		<view class="community-content">

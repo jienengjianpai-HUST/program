@@ -1,6 +1,6 @@
 <template>
-    <view class="datainput-container">
-        <view class="title">
+    <view class="datainput-container gradient"  style="position: fixed; top: 0; left: 0; right: 0; bottom: 0">
+        <view class="title text">
         	数据输入
         </view>
 		
@@ -11,7 +11,7 @@
 		</view>
 		
 		<view class="button-down">
-			<button @click="toZhiwan">下一项</button>
+			<button  class="button" @click="toZhiwan">下一项</button>
 		</view>
 	</view>
 </template>
@@ -55,6 +55,9 @@
 }
 .input1{
 	border-width:100rpx;
-	margin-left: 20rpx;
+	
+}
+.button{
+	margin: 40rpx;
 }
 </style>

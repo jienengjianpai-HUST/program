@@ -1,8 +1,8 @@
 <template>
-	<view class="community-container">
+	<view class="community-container gradient"  style="position: fixed; top: 0; left: 0; right: 0; bottom: 0">
 		<view class="button_top" >
-			<button @click="toPageTaolun">讨论</button>
-			<button >奖励</button>
+			<button  class="button" @click="toPageTaolun">讨论</button>
+			<button  class="button" >奖励</button>
 		</view>
 		<view class="title-container">
 			<text>碳积分奖励兑换</text>
@@ -43,7 +43,7 @@
 				</view>
 			</view>
 			<view class="button-duihuan" style="float: right;">
-				<button>兑换</button>
+				<button class="button">兑换</button>
 			</view>
 		</view>
 		<view class="jiangli-container" style="height: 200rpx;">
@@ -62,7 +62,7 @@
 				</view>
 			</view>
 			<view class="button-duihuan" style="float: right;">
-				<button>兑换</button>
+				<button class="button">兑换</button>
 			</view>
 		</view>
 		<view class="jiangli-container" style="height: 200rpx;">
@@ -81,7 +81,7 @@
 				</view>
 			</view>
 			<view class="button-duihuan" style="float: right;">
-				<button>兑换</button>
+				<button class="button">兑换</button>
 			</view>
 		</view>
 		<view class="jiangli-container" style="height: 200rpx;">
@@ -100,13 +100,13 @@
 				</view>
 			</view>
 			<view class="button-duihuan" style="float: right;">
-				<button>兑换</button>
+				<button class="button">兑换</button>
 			</view>
 		</view>
 		
 		
 		<view class="float-fab">
-			<button style="position: fixed; bottom: 20px; right: 20px;" @click="toPageMyprize">我的奖励</button>
+			<button class="button" style="position: fixed; bottom: 20px; right: 20px;" @click="toPageMyprize">我的奖励</button>
 		</view>
 	</view>
 </template>

@@ -2,14 +2,17 @@
 	"pages": [{
 		"path": "pages/index/index",
 		"style": {
-			"navigationBarTitleText": "发现"
+			"navigationBarTitleText": "",
+			"navigationStyle": "custom"
 		}
 	}    ,{
             "path" : "pages/record/record",
             "style" :                                                                                    
             {
                 "navigationBarTitleText": "登记",
-                "enablePullDownRefresh": false
+                "enablePullDownRefresh": false,
+				"navigationStyle": "custom"
+				
             }
             
         }
@@ -18,7 +21,8 @@
             "style" :                                                                                    
             {
                 "navigationBarTitleText": "社区",
-                "enablePullDownRefresh": false
+                "enablePullDownRefresh": false,
+				"navigationStyle": "custom"
             }
             
         }
@@ -27,7 +31,8 @@
             "style" :                                                                                    
             {
                 "navigationBarTitleText": "我的",
-                "enablePullDownRefresh": false
+                "enablePullDownRefresh": false,
+				"navigationStyle": "custom"
             }
             
         }
@@ -36,7 +41,8 @@
             "style" :                                                                                    
             {
                 "navigationBarTitleText": "分析",
-                "enablePullDownRefresh": false
+                "enablePullDownRefresh": false,
+				"navigationStyle": "custom"
             }
             
         }
@@ -45,7 +51,8 @@
             "style" :                                                                                    
             {
                 "navigationBarTitleText": "项目申报",
-                "enablePullDownRefresh": false
+                "enablePullDownRefresh": false,
+				"navigationStyle": "custom"
             }
             
         }
@@ -54,7 +61,8 @@
             "style" :                                                                                    
             {
                 "navigationBarTitleText": "项目报名",
-                "enablePullDownRefresh": false
+                "enablePullDownRefresh": false,
+				"navigationStyle": "custom"
             }
             
         }
@@ -63,7 +71,8 @@
             "style" :                                                                                    
             {
                 "navigationBarTitleText": "我的项目",
-                "enablePullDownRefresh": false
+                "enablePullDownRefresh": false,
+				"navigationStyle": "custom"
             }
             
         }
@@ -72,7 +81,8 @@
             "style" :                                                                                    
             {
                 "navigationBarTitleText": "生活垃圾",
-                "enablePullDownRefresh": false
+                "enablePullDownRefresh": false,
+				"navigationStyle": "custom"
             }
             
         }
@@ -81,7 +91,8 @@
             "style" :                                                                                    
             {
                 "navigationBarTitleText": "分析",
-                "enablePullDownRefresh": false
+                "enablePullDownRefresh": false,
+				"navigationStyle": "custom"
             }
             
         }
@@ -90,7 +101,8 @@
             "style" :                                                                                    
             {
                 "navigationBarTitleText": "分析",
-                "enablePullDownRefresh": false
+                "enablePullDownRefresh": false,
+				"navigationStyle": "custom"
             }
             
         }
@@ -99,7 +111,8 @@
 		    "style" :                                                                                    
 		    {
 		        "navigationBarTitleText": "分析",
-		        "enablePullDownRefresh": false
+		        "enablePullDownRefresh": false,
+				"navigationStyle": "custom"
 		    }
 		    
 		}
@@ -108,7 +121,8 @@
             "style" :                                                                                    
             {
                 "navigationBarTitleText": "建议",
-                "enablePullDownRefresh": false
+                "enablePullDownRefresh": false,
+				"navigationStyle": "custom"
             }
             
         }
@@ -117,7 +131,8 @@
             "style" :                                                                                    
             {
                 "navigationBarTitleText": "奖励",
-                "enablePullDownRefresh": false
+                "enablePullDownRefresh": false,
+				"navigationStyle": "custom"
             }
             
         }
@@ -126,7 +141,8 @@
             "style" :                                                                                    
             {
                 "navigationBarTitleText": "我的奖励",
-                "enablePullDownRefresh": false
+                "enablePullDownRefresh": false,
+				"navigationStyle": "custom"
             }
             
         }
@@ -135,7 +151,8 @@
             "style" :                                                                                    
             {
                 "navigationBarTitleText": "",
-                "enablePullDownRefresh": false
+                "enablePullDownRefresh": false,
+				"navigationStyle": "custom"
             }
             
         }
@@ -144,7 +161,8 @@
             "style" :                                                                                    
             {
                 "navigationBarTitleText": "",
-                "enablePullDownRefresh": false
+                "enablePullDownRefresh": false,
+				"navigationStyle": "custom"
             }
             
         }
@@ -153,7 +171,8 @@
             "style" :                                                                                    
             {
                 "navigationBarTitleText": "",
-                "enablePullDownRefresh": false
+                "enablePullDownRefresh": false,
+				"navigationStyle": "custom"
             }
             
         }
@@ -163,7 +182,8 @@
             "style" :                                                                                    
             {
                 "navigationBarTitleText": "",
-                "enablePullDownRefresh": false
+                "enablePullDownRefresh": false,
+				"navigationStyle": "custom"
             }
             
         }
@@ -172,7 +192,8 @@
             "style" :                                                                                    
             {
                 "navigationBarTitleText": "",
-                "enablePullDownRefresh": false
+                "enablePullDownRefresh": false,
+				"navigationStyle": "custom"
             }
             
         }
@@ -181,7 +202,8 @@
             "style" :                                                                                    
             {
                 "navigationBarTitleText": "",
-                "enablePullDownRefresh": false
+                "enablePullDownRefresh": false,
+				"navigationStyle": "custom"
             }
             
         }
@@ -190,7 +212,38 @@
             "style" :                                                                                    
             {
                 "navigationBarTitleText": "",
-                "enablePullDownRefresh": false
+                "enablePullDownRefresh": false,
+				"navigationStyle": "custom"
+            }
+            
+        }
+        ,{
+            "path" : "pages/index/xiangqing/xiangqing",
+            "style" :                                                                                    
+            {
+                "navigationBarTitleText": "活动详情",
+                "enablePullDownRefresh": false,
+				"navigationStyle": "custom"
+            }
+            
+        }
+        ,{
+            "path" : "pages/index/xiangqing/baoming-huodong/baoming-huodong",
+            "style" :                                                                                    
+            {
+                "navigationBarTitleText": "",
+                "enablePullDownRefresh": false,
+				"navigationStyle": "custom"
+            }
+            
+        }
+        ,{
+            "path" : "pages/login/login",
+            "style" :                                                                                    
+            {
+                "navigationBarTitleText": "",
+                "enablePullDownRefresh": false,
+				"navigationStyle": "custom"
             }
             
         }
@@ -211,26 +264,33 @@
 		}
 	},
 	"tabBar": {
+		"fontSize": "22rpx",
+		"borderStyle": "white",
 		"list": [
 			{
 				"pagePath": "pages/index/index",
-				"text": "发现"
+				"text": "发现",
+				"iconPath": "static/tabbar_images/icon_a8w8kqvmuap/faxian.png"
 			},
 			{
 				"pagePath": "pages/record/record",
-				"text": "登记"
+				"text": "登记",
+				"iconPath": "static/tabbar_images/icon_a8w8kqvmuap/dengji.png"
 			},
 			{
 				"pagePath": "pages/analyze/analyze",
-				"text": "分析"
+				"text": "分析",
+				"iconPath": "static/tabbar_images/icon_a8w8kqvmuap/zonghefenxi.png"
 			},
 			{
 				"pagePath": "pages/community/community",
-				"text": "社区"
+				"text": "社区",
+				"iconPath": "static/tabbar_images/icon_a8w8kqvmuap/community.png"
 			},
 			{
 				"pagePath": "pages/my/my",
-				"text": "我的"
+				"text": "我的",
+				"iconPath": "static/tabbar_images/icon_a8w8kqvmuap/wode-.png"
 			}
 		]
 	}

@@ -1,5 +1,5 @@
 <template>
-	<view class="container">
+	<view class="container" >
 		<uni-section title="申报人姓名"  type="line" padding="1rpx" >
 					<uni-easyinput class="uni-mt-5" trim="all" v-model="value" placeholder="请输入内容" @input="input"></uni-easyinput>
 		</uni-section>
