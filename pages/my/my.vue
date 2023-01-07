@@ -20,18 +20,25 @@
 				<view style="font-size: 45rpx;margin-bottom: 8%;">{{user_activity_participation_times}}</view>
 				<view style="font-size: 30rpx;">活动参与次数</view>
 			</view>
-			<view id="my_user_ranking">
+			<view id="my_user_ranking" @click="this.my_check_ranking">
 				<view style="font-size: 45rpx;margin-bottom: 8%;">{{user_ranking}}</view>
 				<view style="font-size: 30rpx;">个人排名</view>
 			</view>
 		</view>
 		<view id="my_detail_display">
-			
+			<view id="my_detail_nav_bar">
+				<block v-if="my_nav_bar_select == 'ranking'">
+					<view @click="this.my_check_ranking" id="my_nav_bar_ranking_selected">排名</view>
+				</block>
+				<block v-else>
+					<view @click="this.my_check_ranking" id="my_nav_bar_ranking_unselected">排名</view>
+				</block>
+			</view>
 		</view>
 	</view>
 </template>
 
-<script>
+<script type="text/javascript">
 	export default {
 		data() {
 			return {
@@ -40,8 +47,20 @@
 				user_carbon_score: 32,
 				user_activity_participation_times: 64,
 				user_ranking: 16,
+				my_nav_bar_select: 'raning'
 			};
-		}
+		},
+		methods :{
+			my_check_ranking() {
+				my_nav_bar_select= "ranking"
+				this.check_change_select_nav_bar()
+			},
+			
+			check_change_select_nav_bar () {
+				console.log(this.my_nav_bar_select == 'ranking')
+			},
+		},
+		
 	}
 </script>
 
@@ -92,10 +111,10 @@
 	}
 	
 	.my_data_always_display {
-		height: 16%;
+		height: 13%;
 		width: 750rpx;
 		margin-top: 8%;
-		margin-bottom: 2%;
+		margin-bottom: 0%;
 		margin-left: 30rpx;
 		margin-right: 30rpx;
 	}
@@ -123,7 +142,39 @@
 	
 	#my_detail_display {
 		height: 50%;
-		margin: 4% 20rpx 1% 20rpx;
+		margin: 0% 20rpx 1% 20rpx;
 		font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+	}
+	
+	#my_detail_nav_bar {
+		height: 9%;
+		float: left;
+	}
+	
+	#my_nav_bar_ranking_selected {
+		height: 100%;
+		width: 100%;
+		float: left;
+		margin-left: 30rpx;
+		font-size: 35rpx;
+		font-weight: bold;
+		text-align: center;
+		background-color: rgb(20, 250, 20);
+		border-top-left-radius: 18rpx;
+		border-bottom-left-radius: 18rpx;
+		border-right: solid 3rpx black;
+	}
+	
+	#my_nav_bar_ranking_unselected {
+		height: 100%;
+		width: 100%;
+		float: left;
+		margin-left: 30rpx;
+		font-size: 35rpx; 
+		text-align: center;
+		background-color: rgb(20, 250, 20);
+		border-top-left-radius: 18rpx;
+		border-bottom-left-radius: 18rpx;
+		border-right: solid 3rpx black;
 	}
 </style>
