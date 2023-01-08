@@ -217,6 +217,46 @@
             }
             
         }
+		,{
+		    "path" : "pages/record/GoOut/OutDataInput/OutDataInput",
+		    "style" :                                                                                    
+		    {
+		        "navigationBarTitleText": "",
+		        "enablePullDownRefresh": false,
+				"navigationStyle": "custom"
+		    }
+		    
+		}
+		,{
+		    "path" : "pages/record/GoOut/OutRouteWithMap/OutRouteWithMap",
+		    "style" :                                                                                    
+		    {
+		        "navigationBarTitleText": "",
+		        "enablePullDownRefresh": false,
+				"navigationStyle": "custom"
+		    }
+		    
+		}
+		,{
+		    "path" : "pages/record/GoOut/OutWaySelection/OutWaySelection",
+		    "style" :                                                                                    
+		    {
+		        "navigationBarTitleText": "",
+		        "enablePullDownRefresh": false,
+				"navigationStyle": "custom"
+		    }
+		    
+		}
+		,{
+		    "path" : "pages/record/E-Product/E_ProductInput/E_ProductInput",
+		    "style" :                                                                                    
+		    {
+		        "navigationBarTitleText": "",
+		        "enablePullDownRefresh": false,
+				"navigationStyle": "custom"
+		    }
+		    
+		}
         ,{
             "path" : "pages/index/xiangqing/xiangqing",
             "style" :                                                                                    
