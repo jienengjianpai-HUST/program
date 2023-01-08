@@ -70,12 +70,23 @@
 				<block v-else-if="my_nav_bar_select == 'project_participation_record'">
 					<scroll-view id="my_detail_participation_scroll" scroll-y="true" scroll-top=0>
 						<view class="my_detail_participation_activity_area" v-for="user_participation in user_participations">
+							<text class="my_detail_participation_activity_area_project_name">{{user_participation.project_name}}</text>
 							<image class="my_detail_participation_activity_area_image" :src="user_participation.src"></image>
+							<text class="my_detail_participation_activity_area_texts" id="my_detail_participation_activity_area_time">时间：{{user_participation.time}}</text>
+							<text class="my_detail_participation_activity_area_texts" id="my_detail_participation_activity_area_addr">地点：{{user_participation.addr}}</text>
+							<text class="my_detail_participation_activity_area_texts" id="my_detail_participation_activity_area_people">地点：{{user_participation.people}}</text>
 						</view>
 					</scroll-view>
 				</block>
 				<block v-else-if="my_nav_bar_select == 'carbon_score_change_record'">
-					carbon_score_change_record
+					<view class="my_light_green_rect_carbon_1" id="my_detail_carbon_project_name_label">项目名称</view>
+					<view class="my_light_green_rect_carbon_2" id="my_detail_carbon_carbon_change_label">收入/支出</view>
+					<scroll-view id="my_detail_carbon_scroll"  scroll-y="true" scroll-top=0>
+						<view v-for="user_carbon_project in user_carbon_projects">
+							<view class="my_light_green_rect_carbon_1">{{user_carbon_project.project_name}}</view>
+							<view class="my_light_green_rect_carbon_2">{{user_carbon_project.change_record}}</view>
+						</view>
+					</scroll-view>
 				</block>
 			</view>
 		</view>
@@ -98,6 +109,7 @@
 				all_user_carbon_scores: [1024, 512, 256, 128, 64],
 				user_participations: [
 					{
+						project_name: "面向大一学生的节能科普活动",
 						src: "../../static/节能活动照片.jpg", 
 						time: "2022年3月17日", 
 						addr: "华中科技大学紫菘学生活动中心", 
@@ -105,6 +117,7 @@
 					},
 					
 					{
+						project_name: "面向大二学生的节能科普活动",
 						src: "../../static/节能活动照片.jpg", 
 						time: "2022年7月23日", 
 						addr: "华中科技大学韵苑5栋门口", 
@@ -112,16 +125,51 @@
 					},
 					
 					{
+						project_name: "面向大三学生的节能科普活动",
 						src: "../../static/节能活动照片.jpg", 
 						time: "2023年1月7日", 
 						addr: "华中科技大学爱因斯坦广场", 
 						people: 190,
 					},
 				],
+				user_carbon_projects: [
+					{
+						project_name: "面向大一学生的节能科普活动",
+						change_record: 4,
+					},
+					{
+						project_name: "面向大二学生的节能科普活动",
+						change_record: -8,
+					},
+					{
+						project_name: "面向大三学生的节能科普活动",
+						change_record: -2,
+					},
+					{
+						project_name: "面向大四学生的节能科普活动",
+						change_record: -2,
+					},
+					{
+						project_name: "面向武大学生的节能科普活动",
+						change_record: -2,
+					},
+					{
+						project_name: "面向地大学生的节能科普活动",
+						change_record: -2,
+					},
+					{
+						project_name: "面向中南学生的节能科普活动",
+						change_record: -2,
+					},
+					{
+						project_name: "面向华师学生的节能科普活动",
+						change_record: -2,
+					},
+				]
 			};
 		},
 		methods :{
-			my_check_ranking() {
+			my_check_ranking () {
 				this.my_nav_bar_select = "ranking"
 				this.check_change_select_nav_bar()
 			},
@@ -146,7 +194,7 @@
 
 <style lang="scss">
 	.header_info {
-		height: 18%;
+		height: 240rpx;
 		margin-top: 80rpx;
 		margin-left: 30rpx;
 	}
@@ -191,7 +239,7 @@
 	}
 	
 	.my_data_always_display {
-		height: 14%;
+		height: 180rpx;
 		width: 750rpx;
 		margin-top: 2%;
 		margin-bottom: 0%;
@@ -221,19 +269,20 @@
 	}
 	
 	#my_detail_display {
-		height: 50%;
-		margin: 0% 20rpx 1% 20rpx;
+		height: 750rpx;
+		margin: 0rpx 20rpx 0rpx 20rpx;
 		font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+		// border: solid blue;
 	}
 	
 	#my_detail_nav_bar {
-		height: 9%;
+		height: 60rpx;
 		float: left;
-		margin-bottom: 7%;
+		margin-bottom: 40rpx;
 	}
 	
 	.my_nav_bar_common_selected {
-		height: 100%;
+		height: 60rpx;
 		float: left;
 		font-size: 35rpx;
 		text-align: center;
@@ -242,7 +291,7 @@
 	}
 	
 	.my_nav_bar_common_unselected {
-		height: 100%;
+		height: 60rpx;
 		float: left;
 		font-size: 35rpx;
 		text-align: center;
@@ -250,32 +299,37 @@
 	}
 	
 	#my_nav_bar_ranking {
-		width: 100rpx;
-		margin-left: 30rpx;
+		width: 110rpx;
+		margin-left: 10rpx;
 		border-top-left-radius: 18rpx;
 		border-bottom-left-radius: 18rpx;
 		border-right: solid 3rpx black;
 	}
 	
 	#my_nav_bar_project_participation_record {
-		width: 250rpx;
+		width: 260rpx;
 	}
 	
 	#my_nav_bar_carbon_score_change_record {
-		width: 280rpx;
+		width: 300rpx;
 		border-left: solid 3rpx black;
 		border-top-right-radius: 18rpx;
 		border-bottom-right-radius: 18rpx;
 	}
 	
 	#my_each_detail_display {
-		height: 40%;
-		margin-left: 20rpx;
+		float: left;
+		height: 690rpx;
+		width: 700rpx;
+		margin-left: 0rpx;
+		font-size: 25rpx;
+		font-weight: bolder;
+		font-family: Copperplate, fantasy;
 	}
 	
 	.my_green_rect {
 		height: 60rpx;
-		width: 200rpx;
+		width: 210rpx;
 		background-color: rgb(54, 224, 103);
 		float: left;
 		border-radius: 13rpx;
@@ -303,7 +357,7 @@
 	
 	.my_light_green_rect_thin {
 		height: 60rpx;
-		width: 200rpx;
+		width: 210rpx;
 		background-color: #b7fd5f;
 		float: left;
 		border-radius: 3rpx;
@@ -337,12 +391,12 @@
 	}
 	
 	#my_detail_ranking_all_user_carbon_score_label {
-		
+		margin-right: 0%;
 	}
 	
 	.my_light_green_rect_long {
 		height: 300rpx;
-		width: 200rpx;
+		width: 210rpx;
 		background-color: #b7fd5f;
 		float: left;
 		border-radius: 3rpx;
@@ -352,6 +406,7 @@
 		font-weight: bolder;
 		font-family: Copperplate, fantasy;
 		margin-right: 30rpx;
+		// border: solid azure;
 	}
 	
 	#my_detail_ranking_all_user_ranking_data {
@@ -363,7 +418,7 @@
 	}
 	
 	#my_detail_ranking_all_user_carbon_score_data {
-		
+		margin-right: 0%;
 	}
 	
 	.my_detail_ranking_all_user_list {
@@ -373,14 +428,90 @@
 	}
 	
 	#my_detail_participation_scroll {
-		height: 100%;
+		height: 600rpx;
+		width: 690rpx;
+		// margin-top: 60rpx;
+		// border: solid red;
 	}
 	
 	.my_detail_participation_activity_area {
-		
+		height: 270rpx;
+		width: 690rpx;
+		float: left;
+		margin-bottom: 25rpx;
+		margin-left: 4rpx;
+		background-color: azure;
+		border-radius: 18rpx;
+	}
+	
+	.my_detail_participation_activity_area_project_name {
+		float: left;
+		width: 100%;
+		text-align: center;
+		font-size: 30rpx;
 	}
 	
 	.my_detail_participation_activity_area_image {
+		height: 180rpx;
+		width: 160rpx;
+		float: left;
+		margin: 20rpx 30rpx 0rpx 20rpx;
+	}
+	
+	.my_detail_participation_activity_area_texts {
+		width: 440rpx;
+		float: left;
+		margin: 5rpx 0rpx 25rpx 0rpx;
+	}
+	
+	#my_detail_participation_activity_area_time {
+		margin-top: 20rpx;
+	}
+	
+	#my_detail_participation_activity_area_addr {
 		
+	}
+	
+	#my_detail_participation_activity_area_people {
+		margin: 5rpx 0rpx 0rpx 0rpx;
+	}
+	
+	.my_light_green_rect_carbon_1 {
+		float: left;
+		height: 100rpx;
+		width: 430rpx;
+		line-height: 95rpx;
+		background-color: #36e067;
+		text-align: center;
+		font-weight: normal;
+		margin-top: 20rpx;
+	}
+	
+	.my_light_green_rect_carbon_2 {
+		float: left;
+		height: 100rpx;
+		width: 230rpx;
+		line-height: 95rpx;
+		background-color: #21c433;
+		text-align: center;
+		font-weight: normal;
+		margin-left: 20rpx;
+		margin-top: 20rpx;
+	}
+	
+	#my_detail_carbon_project_name_label {
+		margin-top: 0rpx;
+		font-weight: bold;
+	}
+	
+	#my_detail_carbon_carbon_change_label {
+		margin-top: 0rpx;
+		font-weight: bold;
+	}
+	
+	#my_detail_carbon_scroll {
+		margin-top: 100rpx;
+		height: 500rpx;
+		// border: solid red;
 	}
 </style>
