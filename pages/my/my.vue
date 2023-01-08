@@ -68,7 +68,11 @@
 					</view>
 				</block>
 				<block v-else-if="my_nav_bar_select == 'project_participation_record'">
-					<uni-list v-for="ranking in all_user_rankings">{{ranking}}</uni-list>
+					<scroll-view id="my_detail_participation_scroll">
+						<view class="my_detail_participation_activity_area" v-for="user_participation in user_participations">
+							<image class="my_detail_participation_activity_area_image" src="user_participation[0]"></image>
+						</view>
+					</scroll-view>
 				</block>
 				<block v-else-if="my_nav_bar_select == 'carbon_score_change_record'">
 					carbon_score_change_record
@@ -87,11 +91,16 @@
 				user_carbon_score: 32,
 				user_activity_participation_times: 64,
 				user_ranking: 16,
-				my_nav_bar_select: 'raning',
+				my_nav_bar_select: 'ranking',
 				user_ranking: 8,
 				all_user_rankings: [1, 2, 3, 4, 5],
 				all_user_usernames: ["环保勇士", "绿色骑士", "节约公主", "减排卫士", "能源战士"],
 				all_user_carbon_scores: [1024, 512, 256, 128, 64],
+				user_participations: [
+					["../../static/节能活动照片.jpg", "2022年3月17日", "华中科技大学紫菘学生活动中心", 46],
+					["../../static/节能活动照片.jpg", "2022年7月23日", "华中科技大学韵苑5栋门口", 78],
+					["../../static/节能活动照片.jpg", "2023年1月7日", "华中科技大学爱因斯坦广场", 190],
+				]
 			};
 		},
 		methods :{
@@ -344,5 +353,17 @@
 		height: 60rpx;
 		width: 100%;
 		float: left;
+	}
+	
+	#my_detail_participation_scroll {
+		
+	}
+	
+	.my_detail_participation_activity_area {
+		
+	}
+	
+	.my_detail_participation_activity_area_image {
+		
 	}
 </style>
