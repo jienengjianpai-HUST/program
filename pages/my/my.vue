@@ -68,9 +68,9 @@
 					</view>
 				</block>
 				<block v-else-if="my_nav_bar_select == 'project_participation_record'">
-					<scroll-view id="my_detail_participation_scroll">
+					<scroll-view id="my_detail_participation_scroll" scroll-y="true" scroll-top=0>
 						<view class="my_detail_participation_activity_area" v-for="user_participation in user_participations">
-							<image class="my_detail_participation_activity_area_image" src="user_participation[0]"></image>
+							<image class="my_detail_participation_activity_area_image" :src="user_participation.src"></image>
 						</view>
 					</scroll-view>
 				</block>
@@ -97,31 +97,48 @@
 				all_user_usernames: ["环保勇士", "绿色骑士", "节约公主", "减排卫士", "能源战士"],
 				all_user_carbon_scores: [1024, 512, 256, 128, 64],
 				user_participations: [
-					["../../static/节能活动照片.jpg", "2022年3月17日", "华中科技大学紫菘学生活动中心", 46],
-					["../../static/节能活动照片.jpg", "2022年7月23日", "华中科技大学韵苑5栋门口", 78],
-					["../../static/节能活动照片.jpg", "2023年1月7日", "华中科技大学爱因斯坦广场", 190],
-				]
+					{
+						src: "../../static/节能活动照片.jpg", 
+						time: "2022年3月17日", 
+						addr: "华中科技大学紫菘学生活动中心", 
+						people: 46,
+					},
+					
+					{
+						src: "../../static/节能活动照片.jpg", 
+						time: "2022年7月23日", 
+						addr: "华中科技大学韵苑5栋门口", 
+						people: 78,
+					},
+					
+					{
+						src: "../../static/节能活动照片.jpg", 
+						time: "2023年1月7日", 
+						addr: "华中科技大学爱因斯坦广场", 
+						people: 190,
+					},
+				],
 			};
 		},
 		methods :{
 			my_check_ranking() {
-				this.my_nav_bar_select= "ranking"
+				this.my_nav_bar_select = "ranking"
+				this.check_change_select_nav_bar()
+			},
+			
+			my_check_project_participation_record () {
+				this.my_nav_bar_select = "project_participation_record"
+				this.check_change_select_nav_bar()
+			},
+			
+			my_check_carbon_score_change_record () {
+				this.my_nav_bar_select = "carbon_score_change_record"
 				this.check_change_select_nav_bar()
 			},
 			
 			check_change_select_nav_bar () {
 				console.log(this.my_nav_bar_select)
 			},
-			
-			my_check_project_participation_record () {
-				this.my_nav_bar_select= "project_participation_record"
-				this.check_change_select_nav_bar()
-			},
-			
-			my_check_carbon_score_change_record () {
-				this.my_nav_bar_select= "carbon_score_change_record"
-				this.check_change_select_nav_bar()
-			}
 		},
 		
 	}
@@ -356,7 +373,7 @@
 	}
 	
 	#my_detail_participation_scroll {
-		
+		height: 100%;
 	}
 	
 	.my_detail_participation_activity_area {
