@@ -1,7 +1,7 @@
 <template>
 	<view class="my-container gradient"   style="position: fixed; top: 0; left: 0; right: 0; bottom: 0">
 		<view class="header_info">
-			<image src="../../static/initial_avatar.jpg" class="avatar_like_item" id="my_avatar"></image>
+			<image :src="user_avatar_addr" class="avatar_like_item" id="my_avatar"></image>
 			<view id="my_name_and_id">
 				<view id="my_username">
 					<text>{{username}}</text>
@@ -97,6 +97,7 @@
 	export default {
 		data() {
 			return {
+				user_avatar_addr :"../../static/initial_avatar.jpg",
 				username: "我的昵称",
 				student_id: "U2021XXXXX",
 				user_carbon_score: 32,
