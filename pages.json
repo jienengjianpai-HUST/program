@@ -310,27 +310,32 @@
 			{
 				"pagePath": "pages/index/index",
 				"text": "发现",
-				"iconPath": "static/tabbar_images/icon_a8w8kqvmuap/faxian.png"
+				"iconPath": "static/tabbar_images/icon_a8w8kqvmuap/发现（未选中）.png",
+				"selectedIconPath": "static/tabbar_images/icon_a8w8kqvmuap/发现（已选中).png"
 			},
 			{
 				"pagePath": "pages/record/record",
 				"text": "登记",
-				"iconPath": "static/tabbar_images/icon_a8w8kqvmuap/dengji.png"
+				"iconPath": "static/tabbar_images/icon_a8w8kqvmuap/登记（未选中）.png",
+				"selectedIconPath": "static/tabbar_images/icon_a8w8kqvmuap/登记（已选中）.png"
 			},
 			{
 				"pagePath": "pages/analyze/analyze",
 				"text": "分析",
-				"iconPath": "static/tabbar_images/icon_a8w8kqvmuap/zonghefenxi.png"
+				"iconPath": "static/tabbar_images/icon_a8w8kqvmuap/碳积分（未选中）.png",
+				"selectedIconPath": "static/tabbar_images/icon_a8w8kqvmuap/碳积分（已选中）.png"
 			},
 			{
 				"pagePath": "pages/community/community",
 				"text": "社区",
-				"iconPath": "static/tabbar_images/icon_a8w8kqvmuap/community.png"
+				"iconPath": "static/tabbar_images/icon_a8w8kqvmuap/社区（未选中）.png",
+				"selectedIconPath": "static/tabbar_images/icon_a8w8kqvmuap/社区(已选中）.webp"
 			},
 			{
 				"pagePath": "pages/my/my",
 				"text": "我的",
-				"iconPath": "static/tabbar_images/icon_a8w8kqvmuap/wode-.png"
+				"iconPath": "static/tabbar_images/icon_a8w8kqvmuap/我的（未选中）.png",
+				"selectedIconPath": "static/tabbar_images/icon_a8w8kqvmuap/我的（已选中）.png"
 			}
 		]
 	}
