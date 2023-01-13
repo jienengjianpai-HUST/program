@@ -320,16 +320,16 @@
 				"selectedIconPath": "static/tabbar_images/icon_a8w8kqvmuap/登记（已选中）.png"
 			},
 			{
-				"pagePath": "pages/analyze/analyze",
-				"text": "分析",
-				"iconPath": "static/tabbar_images/icon_a8w8kqvmuap/碳积分（未选中）.png",
-				"selectedIconPath": "static/tabbar_images/icon_a8w8kqvmuap/碳积分（已选中）.png"
-			},
-			{
 				"pagePath": "pages/community/community",
 				"text": "社区",
 				"iconPath": "static/tabbar_images/icon_a8w8kqvmuap/社区（未选中）.png",
 				"selectedIconPath": "static/tabbar_images/icon_a8w8kqvmuap/社区(已选中）.webp"
+			},
+			{
+				"pagePath": "pages/analyze/analyze",
+				"text": "碳积分",
+				"iconPath": "static/tabbar_images/icon_a8w8kqvmuap/碳积分（未选中）.png",
+				"selectedIconPath": "static/tabbar_images/icon_a8w8kqvmuap/碳积分（已选中）.png"
 			},
 			{
 				"pagePath": "pages/my/my",
