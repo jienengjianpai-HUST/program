@@ -1,0 +1,33 @@
+@font-face {
+  font-family: "customicons"; /* Project id 2878519 */
+  src:url('/static/customicons.ttf') format('truetype');
+}
+
+.customicons {
+  font-family: "customicons" !important;
+}
+
+.youxi:before {
+  content: "\e60e";
+}
+
+.wenjian:before {
+  content: "\e60f";
+}
+
+.zhuanfa:before {
+  content: "\e610";
+}
+.gradient {
+  background: linear-gradient(314deg, #73c8e6, #b9fb9b ,#66f35e);
+}
+.button{
+		font-size: 45rpx;
+		font-weight: bold;
+		border: solid 3rpx black;
+		border-radius: 20px;
+}
+.text{
+	font-size: 45rpx;
+	font-weight: bold;
+}

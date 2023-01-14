@@ -1,0 +1,70 @@
+.outway_overall_font_adjustment {
+	font-family: Copperplate, fantasy;
+	font-size: 40rpx;
+	font-weight: bold;
+}
+
+.outway_header {
+	height: 200rpx;
+}
+
+#outway_back_id {
+	font-size: 35rpx;
+}
+
+.outway_back {
+	float: left;
+	margin: 60rpx 0rpx 0rpx 60rpx;
+	height: 50rpx;
+	width: 150rpx;
+	backcolor: transparent;
+	// border: solid;
+}
+
+#outway_main_button_container {
+	height: 600rpx;
+	width: 100%;
+}
+
+.outway_main_button_color {
+	background: #77ea2d;
+}
+
+.outway_diamond_label {
+	height: 80rpx;
+	width: 60%;
+	margin: 0rpx 20% 50rpx 20%;
+	clip-path: polygon(
+		40rpx 0,
+		calc(100% - 40rpx) 0,
+		100% 50%,
+		calc(100% - 40rpx) 100%,
+		40rpx 100%,
+		0 50%,
+	);
+	text-align: center;
+	line-height: 75rpx;
+}
+
+.outway_right_arrow_button {
+	height: 100rpx;
+	width: 30%;
+	clip-path: polygon(
+		0 0,
+		calc(100% - 40rpx) 0,
+		100% 50%,
+		calc(100% - 40rpx) 100%,
+		0 100%,
+	);
+	text-align: center;
+	line-height: 95rpx;
+}
+
+.outway_light_green_long_rounded_rect {
+	height: 80rpx;
+	width: 48%;
+	border-radius: 18rpx;
+	margin: 0rpx 26% 50rpx 26%;
+	text-align: center;
+	line-height: 75rpx;
+}
