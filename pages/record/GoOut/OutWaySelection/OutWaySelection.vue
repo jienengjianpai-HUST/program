@@ -1,7 +1,7 @@
 <template>
 	<view class="my-container gradient outway_overall_font_adjustment"  style="position: fixed; top: 0; left: 0; right: 0; bottom: 0">
 		<view class="outway_header">
-			<view class="outway_back" @click="func_back('/pages/record/record')" id="outway_back_id"> &lt;&emsp;返回</view>
+			<view class="outway_back" @click="func_back('/pages/record/record')" id="outway_back_id"> {{less_symbol}}返回</view>
 		</view>
 		<view id="outway_main_button_container">
 			<view class="outway_diamond_label outway_main_button_color">出行方式登记</view>
@@ -41,6 +41,7 @@
 		data() {
 			return {
 				selected_way: "",
+				less_symbol: "< ",
 			}
 		},
 		methods: {
