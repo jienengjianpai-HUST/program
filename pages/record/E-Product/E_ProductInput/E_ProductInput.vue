@@ -1,7 +1,11 @@
 <template>
 	<view class="record-container gradient outway_overall_font_adjustment"  style="position: fixed; top: 0; left: 0; right: 0; bottom: 0">
 		<view class="outway_header">
+<<<<<<< HEAD
 			<view class="outway_back" @click="func_back('/pages/record/GoOut')" id="outway_back_id"> {{less_symbol}}返回</view>
+=======
+			<view class="outway_back" @click="func_back('/pages/record/GoOut')" id="outway_back_id"> &lt;&emsp;返回</view>
+>>>>>>> 8d66c7d92a27b545a026f57836c4c4bf84fd84fb
 		</view>
 		<!-- {{outway}} -->
 		<view id="outway_main_button_container" style="height: 560rpx;">
@@ -33,7 +37,11 @@
 			return {
 				hour: "",
 				minute: "",
+<<<<<<< HEAD
 				less_symbol:"< ",
+=======
+				
+>>>>>>> 8d66c7d92a27b545a026f57836c4c4bf84fd84fb
 			}
 		},
 		methods: {
