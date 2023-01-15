@@ -1,0 +1,94 @@
+{
+	"bsonType": "object",
+	"required": [],
+	"permission": {
+		"read": true,
+		"create": false,
+		"update": true,
+		"delete": false
+	},
+	"properties": {
+		"_id": {
+			"description": "ID，系统自动生成"
+		},
+		"student_id":{
+			"title": "学号",
+			"bsonType": "string",
+			"minLength": 10,
+			"maxLength": 10,
+			"required": true
+		},
+		"password":{
+			"title": "密码",
+			"minLength": 6,
+			"maxLength": 20,
+			"bsonType": "password",
+			"required": [
+				true
+			],
+			"permission": {
+				"read":true,
+				"update":true,
+				"create":true
+			}
+		},
+		"nickname":{
+			"title": "昵称",
+			"bsonType": "string",
+			"minLength": 1,
+			"maxLength": 20
+		},
+		"birthday":{
+			"title": "生日",
+			"bsonType": "date"
+		},
+		"avatar":{
+			"title": "头像",
+			"bsonType": "string", // file?
+			"defaultValue":"../../static/initial_avatar.jpg"
+		},
+		"sex":{
+			"title": "性别",
+			"bsonType": "string"
+		},
+		"real_name":{
+			"title": "真实姓名",
+			"bsonType": "string",
+			"minLength": 2,
+			"maxLength": 6
+		},
+		"email":{
+			"title": "邮箱",
+			"bsonType": "string",
+			"format": "email"
+		},
+		"carbon_score_left":{
+			"title": "碳积分余额",
+			"required": [
+				true
+			],
+			"bsonType": "int"
+		},
+		"carbon_score_all":{
+			"title": "碳积分总数",
+			"required": [
+				true
+			],
+			"bsonType": "int"
+		},
+		"carbon_score_rank":{
+			"title": "碳积分排名",
+			"required": [
+				true
+			],
+			"bsonType": "int"
+		}
+	},
+	"fieldRules":[
+		{
+			"rule": "carbon_score_left <= carbon_score_all",
+			"errorMessage": "碳积分余额应小于等于碳积分总数"
+			
+		}
+	]
+}
