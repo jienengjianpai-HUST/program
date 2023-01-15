@@ -287,8 +287,6 @@
             }
             
         }
-<<<<<<< HEAD
-=======
         ,{
             "path" : "pages/login/register/register",
             "style" :                                                                                    
@@ -298,8 +296,6 @@
             }
             
         }
-        
->>>>>>> 8d66c7d92a27b545a026f57836c4c4bf84fd84fb
     ],
 	"style": {
 		"app-plus": {
@@ -333,7 +329,6 @@
 				"selectedIconPath": "static/tabbar_images/icon_a8w8kqvmuap/登记（已选中）.png"
 			},
 			{
-<<<<<<< HEAD
 				"pagePath": "pages/community/community",
 				"text": "社区",
 				"iconPath": "static/tabbar_images/icon_a8w8kqvmuap/社区（未选中）.png",
@@ -343,9 +338,7 @@
 				"pagePath": "pages/analyze/analyze",
 				"text": "碳积分",
 				"iconPath": "static/tabbar_images/icon_a8w8kqvmuap/碳积分（未选中）.png",
-				"selectedIconPath": "static/tabbar_images/icon_a8w8kqvmuap/碳积分（已选中）.png"
-=======
-				"pagePath": "pages/analyze/analyze",
+				"selectedIconPath": "static/tabbar_images/icon_a8w8kqvmuap/碳积分（已选中）.png",
 				"text": "分析",
 				"iconPath": "static/tabbar_images/icon_a8w8kqvmuap/碳积分（未选中）.png",
 				"selectedIconPath": "static/tabbar_images/icon_a8w8kqvmuap/碳积分（已选中）.png"
@@ -355,7 +348,6 @@
 				"text": "社区",
 				"iconPath": "static/tabbar_images/icon_a8w8kqvmuap/社区（未选中）.png",
 				"selectedIconPath": "static/tabbar_images/icon_a8w8kqvmuap/社区(已选中）.webp"
->>>>>>> 8d66c7d92a27b545a026f57836c4c4bf84fd84fb
 			},
 			{
 				"pagePath": "pages/my/my",

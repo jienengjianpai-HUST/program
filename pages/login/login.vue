@@ -1,5 +1,4 @@
 <template>
-<<<<<<< HEAD
 	<view class="gradient" style="position: fixed; top: 0; left: 0; right: 0; bottom: 0">
 		<view class="content">
 				<form @submit="formSubmit">
@@ -9,14 +8,11 @@
 				</view>
 				<view class="form">
 					<view class="inputWrapper">
-						<input  class="input"  name="yonghuming"  type="text" value="" placeholder="请输入用户名" @blur="spggBlur"/>
-						
+						<input  class="input"  name="yonghuming"  type="text" value="" placeholder="请输入用户名" @blur="spggBlur"/>					
 					</view>
 					<view class="inputWrapper">
 						<input  class="input"  name="mima"  type="password" value="" placeholder="请输入密码" @blur="spggBlur1"/>
 					</view>
-					
-					
 				</view>
 				<button form-type="submit" class="loginBtn">确认登录</button>
 				</form>
@@ -36,7 +32,6 @@
 		onLoad() {
 		
 		},
-=======
 	<view class="gradient login-container" style="position: fixed; top: 0; left: 0; right: 0; bottom: 0">
 		<view class="title-box">
 			HUST碳排放
@@ -110,17 +105,14 @@
 			
 			
 		}
->>>>>>> 8d66c7d92a27b545a026f57836c4c4bf84fd84fb
 	}
 </script>
 
 <style lang="scss">
-<<<<<<< HEAD
 .gradient{
 	background-color:linear-gradient(315deg, #0055ff,#00aa00) ;
 	background-size: 300% 300%;
 	animation: gradientBG 5s ease infinite;
-=======
 .login-container{
 	/* 100%窗口高度 */
 	height: 100vh;
@@ -139,7 +131,6 @@
 	background-color:linear-gradient(175deg, #ff00ff,#ff007f) ;
 	background-size: 500% 500%;
 	animation: gradientBG 4s ease infinite;
->>>>>>> 8d66c7d92a27b545a026f57836c4c4bf84fd84fb
 }
 
 @keyframes gradientBG {
@@ -153,8 +144,6 @@
 			background-position: 0% 50%;
 		}
 }
-<<<<<<< HEAD
-=======
 .choice-box{
 	display: flex;
 	
@@ -261,5 +250,4 @@
 .owl2 .arms .arm.arm-r{
     transform: translateY(-40px) translateX(-40px) scaleX(-1);
 }
->>>>>>> 8d66c7d92a27b545a026f57836c4c4bf84fd84fb
 </style>
