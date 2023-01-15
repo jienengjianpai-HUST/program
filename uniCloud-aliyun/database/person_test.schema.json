@@ -3,9 +3,9 @@
 	"required": [],
 	"permission": {
 		"read": true,
-		"create": true,
+		"create": false,
 		"update": true,
-		"delete": true
+		"delete": false
 	},
 	"properties": {
 		"_id": {
