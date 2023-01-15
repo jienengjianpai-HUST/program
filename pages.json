@@ -288,7 +288,7 @@
             
         }
         ,{
-            "path" : "pages/login/register/register",
+            "path" : "pages/login/register/register1",
             "style" :                                                                                    
             {
                 "navigationBarTitleText": "",

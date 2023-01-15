@@ -11,84 +11,83 @@
 		"_id": {
 			"description": "ID，系统自动生成"
 		},
-		"student_id":{
+		"student_id": {
 			"title": "学号",
 			"bsonType": "string",
 			"minLength": 10,
 			"maxLength": 10,
-			"required": true
+			"required": true,
+			"pattern": "^U[0-9]{9}",
+			"errorMessage": {
+				"required": "学号必须填写",
+				"minLength": "学号共10位",
+				"maxLength": "学号共10位",
+				"pattern": "学号格式有误"
+			}
 		},
-		"password":{
+		"password": {
 			"title": "密码",
 			"minLength": 6,
 			"maxLength": 20,
 			"bsonType": "password",
+			"pattern": "\w{6, 20}",
 			"required": [
 				true
 			],
 			"permission": {
-				"read":true,
-				"update":true,
-				"create":true
+				"read": true,
+				"update": true,
+				"create": true
 			}
 		},
-		"nickname":{
+		"nickname": {
 			"title": "昵称",
 			"bsonType": "string",
 			"minLength": 1,
 			"maxLength": 20
 		},
-		"birthday":{
+		"birthday": {
 			"title": "生日",
 			"bsonType": "date"
 		},
-		"avatar":{
+		"avatar": {
 			"title": "头像",
-			"bsonType": "string", // file?
-			"defaultValue":"../../static/initial_avatar.jpg"
+			"bsonType": "file", // file?
+			"fileMediaType": "image"
 		},
-		"sex":{
+		"sex": {
 			"title": "性别",
 			"bsonType": "string"
 		},
-		"real_name":{
+		"real_name": {
 			"title": "真实姓名",
 			"bsonType": "string",
 			"minLength": 2,
 			"maxLength": 6
 		},
-		"email":{
+		"email": {
 			"title": "邮箱",
 			"bsonType": "string",
 			"format": "email"
 		},
-		"carbon_score_left":{
+		"carbon_score_left": {
 			"title": "碳积分余额",
-			"required": [
-				true
-			],
+			"defaultValue": 0,
 			"bsonType": "int"
 		},
-		"carbon_score_all":{
+		"carbon_score_all": {
 			"title": "碳积分总数",
-			"required": [
-				true
-			],
+			"defaultValue": 0,
 			"bsonType": "int"
 		},
-		"carbon_score_rank":{
+		"carbon_score_rank": {
 			"title": "碳积分排名",
-			"required": [
-				true
-			],
 			"bsonType": "int"
 		}
 	},
-	"fieldRules":[
-		{
-			"rule": "carbon_score_left <= carbon_score_all",
-			"errorMessage": "碳积分余额应小于等于碳积分总数"
-			
-		}
-	]
+	"fieldRules": [{
+		"rule": "carbon_score_left <= carbon_score_all",
+		"errorMessage": "碳积分余额应小于等于碳积分总数"
+
+	}]
 }

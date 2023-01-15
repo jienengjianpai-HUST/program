@@ -95,6 +95,12 @@
 								icon:'none'
 							});
 						}
+					}).catch((err) => {
+						console.error(err)
+						uni.showToast({
+							title:"请重试",
+							icon:'error'
+						})
 					})
 				}
 				
