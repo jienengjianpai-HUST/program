@@ -17,8 +17,8 @@
 				</view>
 			</view>
 			<view class="input-box">
-			    <input type="text" placeholder="学号" v-model="user_name" @blur="doInput(user_name)">
-			    <input type="password" placeholder="密码" v-model="password" id="password"  >
+			    <input type="text" placeholder="学号" v-model="student_id_input" @blur="doInput(student_id_input)">
+			    <input type="password" placeholder="密码" v-model="password_input" id="password" @blur="check_password(password_input)">
 				<view class="choice-box" >
 					<label>
 						<checkbox  :value="true" /><text class="check-box">记住密码</text>
@@ -36,10 +36,12 @@
 <script >
 	export default {
 		data() {
-			
 			return {
+				login_error_code:"学号为空",
 				owl1:'owl',
 				owl2:'owl2',
+				student_id_input:"",
+				password_input:"",
 			};
 		},
 		methods: {
@@ -49,30 +51,73 @@
 				})
 			},
 			toPageIndex(){
-				uni.switchTab({
-					url:'/pages/index/index'
-				})
+				if (this.login_error_code != "")
+				{
+					uni.showToast({
+						title:this.login_error_code,
+						icon:'none'
+					});
+					return;
+				}
+				else
+				{//U202120210  2023_HUST_JNJP_
+					var login_status = ""
+					uniCloud.callFunction({
+						name:"user_password_request",
+						data:{
+							stu_id_input: this.student_id_input,
+							pwd_input: this.password_input,
+						}
+					}).then(res => {
+						login_status = res.result
+						console.log(login_status)
+						if (login_status == "OK")
+						{
+							uni.showToast({
+								title:"登录成功",
+								icon:'none'
+							});
+							uni.switchTab({
+								url:'/pages/index/index'
+							})
+						}
+						else if(login_status == "inexist student_id")
+						{
+							uni.showToast({
+								title:"学号不存在",
+								icon:'none'
+							});
+						}
+						else if (login_status == "incorrect password")
+						{
+							uni.showToast({
+								title:"密码错误",
+								icon:'none'
+							});
+						}
+					})
+				}
+				
 			},
 			//输入框失去焦点触发事件
 			 doInput(val){
-						    if(val[0]!='U'){
-							    this.testname = 1
-							    uni.showToast({
-									title:"学号格式错误",
-									icon:'none'
-							    });
-							    return;
-						    }
-							if(val[0]=='U'){
-							    this.testname = 0
-							    uni.showToast({
-									title:"学号格式正确",
-									icon:'none'
-							    });
-							    return;
-							}
-						},
-			
+				var pattern = new RegExp("^U[0-9]{9}")
+				if(!pattern.test(val)){
+					this.testname = 1
+					this.login_error_code = "学号格式错误"
+				}
+				if(val[0]=='U' && val.length == 10){
+					this.testname = 0
+					this.login_error_code = ""
+				}
+			},
+			check_password(password_input){
+				// var pattern = new RegExp("\w{6, 20}")
+				// if (!pattern.test(password_input))
+				// {
+				// 	this.login_error_code = ""
+				// }
+			}
 			
 		}
 	}
