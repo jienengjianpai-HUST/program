@@ -1,9 +1,9 @@
-<view class="gradient login-container" style="position: fixed; top: 0; left: 0; right: 0; bottom: 0">
+<template>
+	<view class="gradient login-container" style="position: fixed; top: 0; left: 0; right: 0; bottom: 0">
 		<view class="title-box">
 			HUST碳排放
 		</view>
 		<view class="login-box">
-			
 			<view  :class="owl1" id="owl" >
 				<view class="hand"></view>
 				<view class="hand hand-r"></view>
@@ -83,6 +83,7 @@
 	background-color:linear-gradient(315deg, #0055ff,#00aa00) ;
 	background-size: 300% 300%;
 	animation: gradientBG 5s ease infinite;
+}
 .login-container{
 	/* 100%窗口高度 */
 	height: 100vh;
@@ -134,7 +135,7 @@
     text-indent: 15px;
     outline: none;
     margin-bottom: 15px;
-    background-color: #fff;
+    background-color: #ffffff;
 }
 .input-box input:focus{
     outline: 1px solid lightseagreen;
@@ -143,7 +144,7 @@
     border: none;
     height: 45px;
     background-color:mediumspringgreen;
-    color: #fff;
+    color: #ffffff;
     border-radius: 3px;
     cursor: pointer;
 	font-weight: bolder;
@@ -156,7 +157,7 @@
 	font-weight: 700;
 }
 
-
+/**/
 /* 接下来是猫头鹰的样式 */
 .owl{
     width: 211px;
