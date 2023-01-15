@@ -8,9 +8,9 @@
 						<view v-if="error">
 							{{error.message}}
 						</view>
-						<view v-else>
+						<!-- <view v-else>
 							{{data[0].birth_year}}
-						</view>
+						</view> -->
 					</unicloud-db>
 					<text>{{username}}</text>
 				</view>
@@ -204,8 +204,13 @@
 			where("name == '张三'").
 			get().
 			then((res)=>{
-				this.user_property = res
-				console.log(res.result.data)
+				console.log(res)
+				var all_info = res.result.data
+				if (all_info.length == 1)
+				{
+					this.user_property = all_info[0]
+				}
+				console.log(this.user_property)
 			}).catch((err)=>{
 				console.log(err.code); // 打印错误码
 				console.log(err.message); // 打印错误内容
