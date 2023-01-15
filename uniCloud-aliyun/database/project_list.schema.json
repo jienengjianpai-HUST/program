@@ -1,0 +1,27 @@
+// 文档教程: https://uniapp.dcloud.net.cn/uniCloud/schema
+{
+	"bsonType": "object",
+	"required": [],
+	"permission": {
+		"read": false,
+		"create": false,
+		"update": false,
+		"delete": false
+	},
+	"properties": {
+		"_id": {
+			"description": "ID，系统自动生成"
+		},
+		"project_sum": {
+			"bsonType": "int",
+			"title": "所有正在进行的项目数量"
+		},
+		"project_info": {
+			"title": "所有正在进行的项目的信息",
+			"bsonType": "array",
+			"arrayType": "string",
+			"foreignKey": "project._id"
+		}
+
+	}
+}

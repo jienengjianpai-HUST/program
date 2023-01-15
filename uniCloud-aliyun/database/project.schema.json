@@ -1,0 +1,83 @@
+// 文档教程: https://uniapp.dcloud.net.cn/uniCloud/schema
+{
+	"bsonType": "object",
+	"required": ["project_name", "project_number", "project_content", "project_start_time", "project_end_time",
+		"project_carbon_score", "project_leader", "project_place", "project_people_signed"
+	],
+	"permission": {
+		"read": false,
+		"create": false,
+		"update": false,
+		"delete": false
+	},
+	"properties": {
+		"_id": {
+			"description": "ID，系统自动生成"
+		},
+		"project_name": {
+			"bsonType": "string",
+			"title": "活动名称",
+			"minLength": 1,
+			"maxLength": 25,
+			"trim": "both"
+		},
+		"project_number": {
+			"bsonType": "int",
+			"title": "活动人数"
+		},
+		"project_content": {
+			"bsonType": "string",
+			"title": "活动内容",
+			"minLength": 10,
+			"maxLength": 400
+		},
+		/*"peoject_comments"*/
+		"sign_start_time": {
+			"bsonType": "date",
+			"title": "报名开始时间"
+		},
+		"sign_end_time": {
+			"bsonType": "date",
+			"title": "报名结束时间"
+		},
+		"project_start_time": {
+			"bsonType": "date",
+			"title": "活动开始时间"
+		},
+		"project_end_time": {
+			"bsonType": "date",
+			"title": "活动结束时间"
+		},
+		"project_place": {
+			"bsonType": "string",
+			"title": "地点",
+			"minLength": 1,
+			"maxLength": 50,
+			"trim": "both"
+		},
+		"project_leader": {
+			"bsonType": "string",
+			"foreignKey": "user.student_id",
+			"title": "发起人"
+		},
+		"project_number_signed": {
+			"bsonType": "int",
+			"title": "已经报名人数（int）"
+		},
+		"project_people_signed": {
+			"title": "已报名人数的信息",
+			"bsonType": "array",
+			"arrayType": "string",
+			"foreignKey": "user.student_id"
+		},
+		"project_photo": {
+			"bsonType": "file",
+			"fileMediaType": "image",
+			"fileExtName": "jpg,png"
+		},
+		"project_carbon_score": {
+			"bsonType": "int",
+			"title": "活动碳积分"
+		}
+	}
+}
