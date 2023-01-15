@@ -4,6 +4,14 @@
 			<image :src="user_avatar_addr" class="avatar_like_item" id="my_avatar"></image>
 			<view id="my_name_and_id">
 				<view id="my_username">
+					<unicloud-db v-slot:default="{data, loading, error, hasMore, options}" collection="person_test">
+						<view v-if="error">
+							{{error.message}}
+						</view>
+						<view v-else>
+							{{data[0].name}}
+						</view>
+					</unicloud-db>
 					<text>{{username}}</text>
 				</view>
 				<view id="my_student_id">
@@ -94,6 +102,7 @@
 </template>
 
 <script type="text/javascript">
+	const db = uniCloud.database();
 	export default {
 		data() {
 			return {

@@ -1,38 +1,4 @@
-<template>
-	<view class="gradient" style="position: fixed; top: 0; left: 0; right: 0; bottom: 0">
-		<view class="content">
-				<form @submit="formSubmit">
-				<view class="avatorWrapper">
-					<view class="avator">
-					</view>
-				</view>
-				<view class="form">
-					<view class="inputWrapper">
-						<input  class="input"  name="yonghuming"  type="text" value="" placeholder="请输入用户名" @blur="spggBlur"/>					
-					</view>
-					<view class="inputWrapper">
-						<input  class="input"  name="mima"  type="password" value="" placeholder="请输入密码" @blur="spggBlur1"/>
-					</view>
-				</view>
-				<button form-type="submit" class="loginBtn">确认登录</button>
-				</form>
-			</view>
-	</view>
-</template>
-
-<script>
-	export default {
-		data() {
-			return {
-				title: 'Hello',
-				yonghuming:"",
-				mima:"",
-			};
-		},
-		onLoad() {
-		
-		},
-	<view class="gradient login-container" style="position: fixed; top: 0; left: 0; right: 0; bottom: 0">
+<view class="gradient login-container" style="position: fixed; top: 0; left: 0; right: 0; bottom: 0">
 		<view class="title-box">
 			HUST碳排放
 		</view>
@@ -42,8 +8,12 @@
 				<view class="hand"></view>
 				<view class="hand hand-r"></view>
 				<view class="arms">
-					<view class="arm"></view>
-					<view class="arm arm-r"></view>
+					<view class="arm">
+						
+					</view>
+					<view class="arm arm-r">
+						
+					</view>
 				</view>
 			</view>
 			<view class="input-box">
