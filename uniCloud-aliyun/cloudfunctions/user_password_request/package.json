@@ -1,0 +1,7 @@
+{
+  "name": "user_password_request",
+  "dependencies": {},
+  "extensions": {
+    "uni-cloud-jql": {}
+  }
+}
