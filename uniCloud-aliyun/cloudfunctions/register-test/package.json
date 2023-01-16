@@ -1,0 +1,7 @@
+{
+  "name": "register-test",
+  "dependencies": {},
+  "extensions": {
+    "uni-cloud-jql": {}
+  }
+}
