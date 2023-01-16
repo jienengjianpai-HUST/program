@@ -136,7 +136,10 @@
 					res = res.result
 					console.log(res)
 					if (res == "注册成功")
-					{
+					{//U20212022 111111
+						console.log(this.input_student_id)
+						getApp().globalData.user_infos.student_id = this.input_student_id
+						console.log(getApp().globalData.user_infos.student_id)
 						uni.navigateTo({
 							url:"/pages/login/register/register2"
 						})

@@ -77,8 +77,8 @@
 						{
 							uni.showToast({
 								title:"登录成功",
-								icon:'none'
-							});
+								icon:"success"
+							})
 							uni.switchTab({
 								url:'/pages/index/index'
 							})
