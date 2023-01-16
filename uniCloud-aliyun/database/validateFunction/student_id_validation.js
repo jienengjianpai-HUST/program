@@ -7,5 +7,9 @@ module.exports = function(rule, value, data, callback) {
 	{
 		return false
 	}
-	return value.length == 10
+	if (!(value.length == 10))
+	{
+		return false
+	}
+	return true
 }

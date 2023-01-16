@@ -5,7 +5,11 @@ module.exports = function(rule, value, data, callback) {
 	var pattern = new RegExp("[\\w]{6,20}")
 	if (pattern.test(value))
 	{
-		return value.length <= 20 && value.length >= 6
+		if (value.length <= 20 && value.length >= 6)
+		{
+			return true
+		}
+		return false
 	}
 	return false
 }

@@ -34,6 +34,8 @@
 </template>
 
 <script >
+	import student_id_validation from '../common_js/validation_funcs.js'
+	import password_validation from '../common_js/validation_funcs.js'
 	export default {
 		data() {
 			return {
@@ -47,7 +49,7 @@
 		methods: {
 			toPageRegister(){
 				uni.navigateTo({
-					url:'/pages/login/register/register'
+					url:'/pages/login/register/register1'
 				})
 			},
 			toPageIndex(){
@@ -106,23 +108,27 @@
 				
 			},
 			//输入框失去焦点触发事件
-			 doInput(val){
-				var pattern = new RegExp("^U[0-9]{9}")
-				if(!pattern.test(val)){
-					this.testname = 1
-					this.login_error_code = "学号格式错误"
-				}
-				if(val[0]=='U' && val.length == 10){
+			doInput(val){
+				if (student_id_validation.student_id_validation(val))
+				{
 					this.testname = 0
 					this.login_error_code = ""
 				}
+				else
+				{
+					this.testname = 1
+					this.login_error_code = "学号格式错误"
+				}
 			},
 			check_password(password_input){
-				// var pattern = new RegExp("\w{6, 20}")
-				// if (!pattern.test(password_input))
-				// {
-				// 	this.login_error_code = ""
-				// }
+				if (password_validation.password_validation(password_input))
+				{
+					this.login_error_code = ""
+				}
+				else
+				{
+					this.login_error_code = "密码格式错误"
+				}
 			}
 			
 		}

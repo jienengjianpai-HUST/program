@@ -14,20 +14,16 @@
 		"student_id": {
 			"title": "学号",
 			"bsonType": "string",
+			"trim": "both",
 			"minLength": 10,
 			"maxLength": 10,
 			"required": true,
 			"pattern": "^U[0-9]{9}",
-			"validateFunction": "student_id_validation",
-			"errorMessage": {
-				"required": "学号必须填写",
-				"minLength": "学号共10位",
-				"maxLength": "学号共10位",
-				"pattern": "学号格式有误"
-			}
+			"validateFunction": "student_id_validation"
 		},
 		"password": {
 			"title": "密码",
+			"trim": "both",
 			"minLength": 6,
 			"maxLength": 20,
 			"bsonType": "password",
@@ -36,9 +32,9 @@
 				true
 			],
 			"permission": {
-				"create":true,
-				"read":true,
-				"update":true
+				"create": true,
+				"read": true,
+				"update": true
 			},
 			"validateFunction": "password_validation"
 		},
@@ -63,12 +59,14 @@
 		},
 		"real_name": {
 			"title": "真实姓名",
+			"trim": "both",
 			"bsonType": "string",
 			"minLength": 2,
 			"maxLength": 6
 		},
 		"email": {
 			"title": "邮箱",
+			"trim": "both",
 			"bsonType": "string",
 			"format": "email"
 		},

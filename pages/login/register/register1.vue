@@ -1,5 +1,5 @@
 <template>
-	<view>
+	<view class="my-container gradient"   style="position: fixed; top: 0; left: 0; right: 0; bottom: 0">
 		<view class="header_box">
 			HUST碳排放
 		</view>
@@ -7,15 +7,15 @@
 			<view class="register1_light_grey_small_word">
 				昵称
 			</view>
-			<input value="BirB" class="register1_input" auto-focus="true" placeholder="昵称" v-model="input_nickname"/>
+			<input  class="register1_input" auto-focus="true" placeholder="昵称" v-model="input_nickname"/>
 			<view class="register1_light_grey_small_word">
 				学号
 			</view>
-			<input value="U202120215" class="register1_input" placeholder="学号" v-model="input_student_id"/>
+			<input  class="register1_input" placeholder="学号" v-model="input_student_id"/>
 			<view class="register1_light_grey_small_word">
 				密码
 			</view>
-			<input value="123456" password="true" class="register1_input" v-model="input_pwd"/>
+			<input  password="true" class="register1_input" v-model="input_pwd"/>
 			<block v-if="pwd_clicked">
 				<view id=""  @click="eye_switch('密码')">
 					<image style="height: 40rpx;width: 60rpx;" src="../../../static/eyes/隐藏密码.png"></image>
@@ -29,7 +29,7 @@
 			<view class="register1_light_grey_small_word">
 				确认密码
 			</view>
-			<input value="123456" password="true" class="register1_input" v-model="input_confirm_pwd"/>
+			<input  password="true" class="register1_input" v-model="input_confirm_pwd"/>
 			<block v-if="confirm_pwd_clicked">
 				<view id="register1_eye_pwd" @click="eye_switch('确认密码')">
 					<image style="height: 40rpx;width: 60rpx;" src="../../../static/eyes/隐藏密码.png"></image>
@@ -48,6 +48,8 @@
 </template>
 
 <script>
+	import student_id_validation from '../../common_js/validation_funcs.js'
+	import password_validation from '../../common_js/validation_funcs.js'
 	export default {
 		data() {
 			return {
@@ -74,6 +76,7 @@
 			},
 			check_for_next()
 			{
+				this.input_student_id = this.input_student_id.trim()
 				if (this.input_nickname == "")
 				{
 					uni.showToast({
@@ -90,7 +93,14 @@
 					})
 					return
 				}
-				var pattern = new RegExp("[\\w]{6,20}")
+				else if (!(student_id_validation.student_id_validation(this.input_student_id)))
+				{
+					uni.showToast({
+						title:"学号格式错误",
+						icon:'error'
+					})
+					return
+				}
 				if (this.input_confirm_pwd != this.input_pwd)
 				{
 					uni.showToast({
@@ -107,7 +117,7 @@
 					})
 					return
 				}
-				else if (!(pattern.test(this.input_pwd)))
+				else if (!(password_validation.password_validation(this.input_pwd)))
 				{
 					uni.showToast({
 						title:"密码格式错误",
@@ -122,47 +132,24 @@
 						student_id_:this.input_student_id,
 						password_:this.input_pwd,
 					},
-					success(res) {
-						console.log("success")
-						console.log(res)
-					},
-					fail(res) {
-						console.log("fail")
-						console.log(res)
+				}).then(res => {
+					res = res.result
+					console.log(res)
+					if (res == "注册成功")
+					{
+						uni.navigateTo({
+							url:"/pages/login/register/register2"
+						})
+					}
+					else if (res == "学号已经存在")
+					{
+						uni.showToast({
+							title:res,
+							icon:'error'
+						})
+						return
 					}
 				})
-				// const collection = uniCloud.database().collection("user")
-				// let res = collection.add({
-				// 	nickname: this.input_nickname,
-				// 	student_id: this.input_student_id,
-				// 	password: this.input_pwd,
-				// }).catch(err => {
-				// 	console.log(err)
-				// })
-				// console.log(res)
-				// var pattern = new RegExp("^PERMISSION_ERROR")
-				// if (pattern.test(res))
-				// {
-				// 	uniCloud.callFunction({
-				// 		name:"user_register_primary_info",
-				// 		data:{
-				// 			nickname_:this.input_nickname,
-				// 			student_id_:this.input_student_id,
-				// 			password_:this.input_pwd,
-				// 		},
-				// 		success(res_cloud) {
-				// 			console.log(res_cloud)
-				// 		},
-				// 		fail:function(res_cloud){
-				// 			console.log(res_cloud)
-				// 			uni.showToast({
-				// 				title:"学号已存在",
-				// 				icon:'error'
-				// 			})
-				// 		},
-						
-				// 	})
-				// }
 			}
 		}
 	}
