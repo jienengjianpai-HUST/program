@@ -1,0 +1,7 @@
+{
+  "name": "user_register_secondary_info",
+  "dependencies": {},
+  "extensions": {
+    "uni-cloud-jql": {}
+  }
+}
