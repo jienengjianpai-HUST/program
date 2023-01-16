@@ -1,7 +1,7 @@
 <script>
 	export default {
 		globalData:{
-			_id:""
+			_id:"",
 			student_id:"",
 			nickname:"",
 			avatar:"",
