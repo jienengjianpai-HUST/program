@@ -305,6 +305,16 @@
 				"navigationStyle": "custom"
 			}
 		}
+        ,{
+            "path" : "pages/login/register/register3/register3",
+            "style" :                                                                                    
+            {
+                "navigationBarTitleText": "",
+                "enablePullDownRefresh": false,
+				"navigationStyle": "custom"
+            }
+            
+        }
     ],
 	"style": {
 		"app-plus": {
