@@ -1,13 +1,15 @@
 <script>
 	export default {
 		globalData:{
-			_id:"",
-			student_id:"",
-			nickname:"",
-			avatar:"",
-			carbon_score_left:"",
-			carbon_score_all:"",
-			carbon_score_rank:"",
+			user_infos:{
+				_id:"",
+				student_id:"",
+				nickname:"",
+				avatar:"",
+				carbon_score_left:"",
+				carbon_score_all:"",
+				carbon_score_rank:"",
+			},
 		},
 		onLaunch: function() {
 			// console.warn('当前组件仅支持 uni_modules 目录结构 ，请升级 HBuilderX 到 3.1.0 版本以上！')
