@@ -306,7 +306,7 @@
 			}
 		}
         ,{
-            "path" : "pages/login/register/register3/register3",
+            "path" : "pages/login/register/register3",
             "style" :                                                                                    
             {
                 "navigationBarTitleText": "",
