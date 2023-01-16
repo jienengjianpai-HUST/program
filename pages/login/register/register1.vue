@@ -90,6 +90,7 @@
 					})
 					return
 				}
+				var pattern = new RegExp("[\\w]{6,20}")
 				if (this.input_confirm_pwd != this.input_pwd)
 				{
 					uni.showToast({
@@ -98,10 +99,18 @@
 					})
 					return
 				}
-				else if (this.input_confirm_pwd == "")
+				else if (this.input_pwd == "")
 				{
 					uni.showToast({
 						title:"密码不能为空",
+						icon:'error'
+					})
+					return
+				}
+				else if (!(pattern.test(this.input_pwd)))
+				{
+					uni.showToast({
+						title:"密码格式错误",
 						icon:'error'
 					})
 					return
@@ -112,6 +121,14 @@
 						nickname_:this.input_nickname,
 						student_id_:this.input_student_id,
 						password_:this.input_pwd,
+					},
+					success(res) {
+						console.log("success")
+						console.log(res)
+					},
+					fail(res) {
+						console.log("fail")
+						console.log(res)
 					}
 				})
 				// const collection = uniCloud.database().collection("user")
@@ -120,13 +137,32 @@
 				// 	student_id: this.input_student_id,
 				// 	password: this.input_pwd,
 				// }).catch(err => {
-					
-				// 	var pattern = new RegExp("^Error: E11000 duplicate key error collection")
-				// 	if (pattern.test(err))
-				// 	{
-				// 		return "student id already exists"
-				// 	}
+				// 	console.log(err)
 				// })
+				// console.log(res)
+				// var pattern = new RegExp("^PERMISSION_ERROR")
+				// if (pattern.test(res))
+				// {
+				// 	uniCloud.callFunction({
+				// 		name:"user_register_primary_info",
+				// 		data:{
+				// 			nickname_:this.input_nickname,
+				// 			student_id_:this.input_student_id,
+				// 			password_:this.input_pwd,
+				// 		},
+				// 		success(res_cloud) {
+				// 			console.log(res_cloud)
+				// 		},
+				// 		fail:function(res_cloud){
+				// 			console.log(res_cloud)
+				// 			uni.showToast({
+				// 				title:"学号已存在",
+				// 				icon:'error'
+				// 			})
+				// 		},
+						
+				// 	})
+				// }
 			}
 		}
 	}

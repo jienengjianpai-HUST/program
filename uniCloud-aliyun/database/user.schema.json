@@ -18,6 +18,7 @@
 			"maxLength": 10,
 			"required": true,
 			"pattern": "^U[0-9]{9}",
+			"validateFunction": "student_id_validation",
 			"errorMessage": {
 				"required": "学号必须填写",
 				"minLength": "学号共10位",
@@ -30,15 +31,16 @@
 			"minLength": 6,
 			"maxLength": 20,
 			"bsonType": "password",
-			"pattern": "\w{6, 20}",
+			"pattern": "[\\w]{6,20}",
 			"required": [
 				true
 			],
 			"permission": {
-				"read": true,
-				"update": true,
-				"create": true
-			}
+				"create":true,
+				"read":true,
+				"update":true
+			},
+			"validateFunction": "password_validation"
 		},
 		"nickname": {
 			"title": "昵称",
