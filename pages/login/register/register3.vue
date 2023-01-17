@@ -1,31 +1,34 @@
 <template>
-	<view class="my-container gradient"   style="position: fixed; top: 0; left: 0; right: 0; bottom: 0">
+	<view class="my-container gradient font_constrain"   style="position: fixed; top: 0; left: 0; right: 0; bottom: 0">
+		<image mode="scaleToFill" class="cushion_image_1" src="../../../static/弯曲背景图.png"></image>
+		<image mode="scaleToFill" class="cushion_image_2" src="../../../static/白板背景.png"></image>
 		<view class="header_box">
-			HUST碳排放
+			<view class="header_text">
+				HUST碳排放
+			</view>
 		</view>
 		<view id="register3_avatar_setting_box">
 			<view id="register3_avatar_setting_button_box">
-				<image mode="scaleToFill" :src="image_src" id="avatar_id" style="border-radius: 50%;height: 154rpx;width: 154rpx;"  @click="set_avatar"></image>
-				<image mode="scaleToFill" src="../../../static/照相机.png" style="height: 44rpx;width: 44rpx;"></image>
+				<image mode="scaleToFill" :src="image_src" id="avatar_id" style="border-radius: 50%;height: 274rpx;width: 274rpx; border: green 6rpx solid; margin: 0% 130rpx 35rpx 130rpx;"></image>
+				<image mode="scaleToFill" src="../../../static/照相机.png" style="height: 77rpx;width: 77rpx; position: absolute; top: 520rpx; left: 474rpx;" @click="set_avatar"></image>
 				<view id="register3_text_setting_avatar">
 					请设置您的头像
 				</view>
 			</view>
-			<view id="register3_form">
-				<uni-forms ref="info_form" :model="user_infos" labelWidth="120rpx" labelAlign="center" labelPosition="left" :rules="rules">
-					<uni-forms-item label="生日" required name="birthday">
-						<uni-datetime-picker type="date" :clear-icon="true" v-model="user_infos.birthday" :border="false" style="width: 600rpx;"></uni-datetime-picker>
-					</uni-forms-item>
-					<uni-forms-item label="性别" required name="sex">
-						<uni-data-select v-model="user_infos.sex" :localdata="sexs"></uni-data-select>
-					</uni-forms-item>
-				</uni-forms>
-				<view id="register3_submit_btn_box">
-					<view id="register3_submit_btn" @click="submit_form('info_form')">
-						完成注册
-					</view>
-				</view>
-				
+		</view>
+		<view id="register3_form">
+			<uni-forms ref="info_form" :model="user_infos" labelWidth="120rpx" labelAlign="center" labelPosition="left" :rules="rules">
+				<uni-forms-item label="生日" required name="birthday">
+					<uni-datetime-picker type="date" :clear-icon="true" v-model="user_infos.birthday" :border="false" style="width: 420rpx; border-radius: 10rpx; border: 1rpx solid lightgrey; margin-bottom: 69rpx;"></uni-datetime-picker>
+				</uni-forms-item>
+				<uni-forms-item label="性别" required name="sex">
+					<uni-data-select v-model="user_infos.sex" :localdata="sexs" style="width: 420rpx;"></uni-data-select>
+				</uni-forms-item>
+			</uni-forms>
+		</view>
+		<view id="register3_submit_btn_box">
+			<view class="register_green_primary_button" @click="submit_form('info_form')">
+				完成注册
 			</view>
 		</view>
 	</view>
@@ -157,5 +160,31 @@
 </script>
 
 <style lang="scss">
-
+	@import '../common_scss/login_register.scss';
+	
+	#register3_avatar_setting_box {
+		height: 386rpx;
+		margin: 0% 103rpx 40rpx 103rpx;
+		width: 544rpx;
+		// border: 1rpx solid;
+	}
+	
+	#register3_text_setting_avatar {
+		text-align: center;
+		font-size: 30rpx;
+		font-weight: 500;
+		font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+	}
+	
+	#register3_form {
+		font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+		font-size: 42rpx;
+		height: 301rpx;
+		margin: 0% 75rpx 40rpx 75rpx;
+		// border: 1rpx solid;
+	}
+	
+	#register3_submit_btn_box {
+		//margin: 0% 172rpx 0% 172rpx;
+	}
 </style>

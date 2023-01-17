@@ -1,34 +1,36 @@
 <template>
 	<view class="gradient login-container font_constrain" style="position: fixed; top: 0; left: 0; right: 0; bottom: 0">
-		<image src="../../static/login_images/登录底部背景图.png" style="position: absolute; top: 880rpx; left:50rpx;z-index: -1;"></image>
 		<view class="header_box">
 			<view class="header_text">
 				HUST碳排放
 			</view>
 		</view>
-		<view id="logo_box" style="height: 280rpx;margin: 3rpx 0% 0rpx 0%;">
-			<image src="../../static/logo.png" mode="scaleToFill" style="height: 205rpx; width: 205rpx; border-radius: 50%; border: 4rpx green solid; margin: 0% 270rpx 40rpx 270rpx;"></image>
-		</view>
-		<view class="login_box">
-			<view class="input_icon">
-				<image mode="scaleToFill" src="../../static/login_images/学号小图标.png" class="input_icon_image"></image>
+		<view class="login-box">
+			<view  :class="owl1" id="owl" >
+				<view class="hand"></view>
+				<view class="hand hand-r"></view>
+				<view class="arms">
+					<view class="arm">
+						
+					</view>
+					<view class="arm arm-r">
+						
+					</view>
+				</view>
 			</view>
-			<input type="text" class="login_input" id="login_input_1" placeholder="学号" v-model="student_id_input" @blur="doInput(student_id_input)"/>
-		</view>
-		<view class="login_box">
-			<view class="input_icon">
-				<image mode="scaleToFill" src="../../static/login_images/密码小图标.png" class="input_icon_image" style="margin: 15rpx 0rpx 0rpx 20rpx;"></image>
+			<view class="input-box">
+			    <input type="text" placeholder="学号" v-model="student_id_input" @blur="doInput(student_id_input)">
+			    <input type="password" placeholder="密码" v-model="password_input" id="password" @blur="check_password(password_input)">
+				<view class="choice-box" >
+					<label>
+						<checkbox/><text class="check-box">记住密码</text>
+					</label>
+					<view class="register-box" @click="toPageRegister" >
+						<text>注册账号</text>
+					</view>
+				</view>
+			    <button @click="toPageIndex">登录</button>
 			</view>
-			<input type="password" class="login_input" id="login_input_2" placeholder="密码" v-model="password_input"/>
-		</view>
-		<view id="login_options" style="font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif; font-weight: 100; line-height: 45rpx; display: flex; height: 47rpx; margin: 0rpx 102rpx 20rpx 102rpx;">
-			<label>
-				<checkbox/><text style="font-weight: 100;">记住密码</text>
-			</label>
-			<view id="register" @click="toPageRegister" style="margin: 0% 0% 0% 210rpx;">注册账号</view>
-		</view>
-		<view id="login_button" style="height: 144rpx; margin-top: 80rpx;">
-			<button type="default" style="width: 270rpx; font-weight:900; font-size: 45rpx;" @click="toPageIndex">登录</button>
 		</view>
 	</view>
 </template>
@@ -124,6 +126,7 @@
 				}
 				console.log(getApp().globalData.user_infos)
 			},
+			//输入框失去焦点触发事件
 			doInput(val){
 				if (student_id_validation.student_id_validation(val))
 				{
@@ -158,14 +161,14 @@
 	background-size: 300% 300%;
 	animation: gradientBG 5s ease infinite;
 }
-// .login-container{
-// 	/* 100%窗口高度 */
-// 	height: 100vh;
-// 	/* 弹性布局 居中 */
-// 	display: flex;
-// 	justify-content: center;
-// 	align-items: center;
-// }
+.login-container{
+	/* 100%窗口高度 */
+	height: 100vh;
+	/* 弹性布局 居中 */
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
 .title-box{
 	position:fixed;
 	top: 120rpx;
@@ -225,10 +228,10 @@
 }
 .check-box{
     margin-right: 40rpx;
-	font-weight: 500;
+	font-weight: 700;
 }
 .register-box{
-	font-weight: 500;
+	font-weight: 700;
 }
 
 /**/
@@ -295,13 +298,4 @@
 .owl2 .arms .arm.arm-r{
     transform: translateY(-40px) translateX(-40px) scaleX(-1);
 }
-
-	#login_input_1 {
-		margin-bottom: 40rpx;
-		// background-image: url("../../static/login_images/学号小图标.png");
-	}
-	
-	#login_input_2 {
-		// background-image: url('../../static/login_images/密码小图标.png');
-	}
 </style>

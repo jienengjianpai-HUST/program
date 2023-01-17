@@ -11,7 +11,6 @@
 
 .font_constrain {
 	font-family: Alimama_ShuHeiTi_Bold;
-	font-weight: bold;
 }
 
 .header_box {
@@ -21,7 +20,7 @@
 }
 
 .header_text {
-	margin-top: 100rpx;
+	margin-top: 80rpx;
 	height: 130rpx;
 	font-weight: bolder;
 	font-size: 92rpx;
@@ -74,4 +73,41 @@
 	font-size: 64rpx;
 	text-align: center;
 	line-height: 132rpx;
+}
+
+.login_input {
+	font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+	font-weight: 300;
+	width: 505rpx;
+	height: 104rpx;
+	border: 2rpx solid;
+	border-left: #ffffff;
+	border-top-right-radius: 40rpx;
+	border-bottom-right-radius: 40rpx;
+	background-size: 80rpx 80rpx;
+	background-position: 20rpx 5rpx;
+	background-repeat: no-repeat;
+	background-color: #ffffff;
+}
+
+.input_icon {
+	border-top-left-radius: 40rpx; 
+	border-bottom-left-radius: 40rpx;
+	background-color: #ffffff;
+	height: 104rpx;
+	width: 93rpx; 
+	border: 2rpx solid; 
+	border-right: #ffffff;
+}
+
+.input_icon_image {
+	height: 70rpx;
+	width: 70rpx;
+	margin: 19rpx 0rpx 0rpx 19rpx;
+}
+
+.login_box {
+	height: 139rpx; 
+	margin: 0% 75rpx 30rpx 75rpx; 
+	display:inline-flex;
 }
