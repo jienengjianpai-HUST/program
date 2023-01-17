@@ -7,6 +7,8 @@ exports.main = async (event, context) => {
 		nickname_,
 		student_id_,
 		password_,
+		carbon_score_left_,
+		carbon_score_all_
 	} = event
 	let search_col = collection.where({
 		student_id: event.student_id_
@@ -20,6 +22,8 @@ exports.main = async (event, context) => {
 		nickname: event.nickname_,
 		student_id: event.student_id_,
 		password: event.password_,
+		carbon_score_left: event.carbon_score_left_,
+		carbon_score_all: event.carbon_score_all_
 	}).catch(err => {
 		console.log(err)
 	})

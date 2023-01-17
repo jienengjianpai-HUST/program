@@ -86,6 +86,8 @@ module.exports = {
 			nickname_,
 			student_id_,
 			password_,
+			carbon_score_left_,
+			carbon_score_all_
 		} = event
 		let search_col = collection.where({
 			student_id: event.student_id_
@@ -99,11 +101,13 @@ module.exports = {
 			nickname: event.nickname_,
 			student_id: event.student_id_,
 			password: event.password_,
+			carbon_score_left: event.carbon_score_left_,
+			carbon_score_all: event.carbon_score_all_
 		}).catch(err => {
 			console.log(err)
 		})
-		res_data = res.id
-		if (res_data != undefined)
+		res_id = res.id
+		if (res_id != undefined)
 		{
 			return "注册成功"
 		}
