@@ -5,7 +5,8 @@ exports.main = async (event, context) => {
 	const {
 		student_id,
 		birthday,
-		sex
+		sex,
+		avatar
 	} = event
 	const search_res = await collection.where({
 		student_id:event.student_id
@@ -14,7 +15,8 @@ exports.main = async (event, context) => {
 	const data_id = search_res.data[0]._id
 	const set_res = await collection.doc(data_id).update({
 		birthday:birthday,
-		sex:sex
+		sex:sex,
+		avatar:avatar
 	}).then(res => {
 		console.log("res")
 		console.log(res)
