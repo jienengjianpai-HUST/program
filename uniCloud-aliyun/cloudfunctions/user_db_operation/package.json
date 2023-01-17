@@ -1,0 +1,7 @@
+{
+  "name": "user_db_operation",
+  "dependencies": {},
+  "extensions": {
+    "uni-cloud-jql": {}
+  }
+}
