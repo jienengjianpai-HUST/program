@@ -21,7 +21,7 @@
 			    <input type="password" placeholder="密码" v-model="password_input" id="password" @blur="check_password(password_input)">
 				<view class="choice-box" >
 					<label>
-						<checkbox  :value="true" /><text class="check-box">记住密码</text>
+						<checkbox/><text class="check-box">记住密码</text>
 					</label>
 					<view class="register-box" @click="toPageRegister" >
 						<text>注册账号</text>
@@ -36,6 +36,7 @@
 <script >
 	import student_id_validation from '../common_js/validation_funcs.js'
 	import password_validation from '../common_js/validation_funcs.js'
+	const operation = uniCloud.importObject("user_db_operation")
 	export default {
 		data() {
 			return {
@@ -79,6 +80,7 @@
 								title:"登录成功",
 								icon:"success"
 							})
+							this.load_user_infos()
 							uni.switchTab({
 								url:'/pages/index/index'
 							})
@@ -106,6 +108,22 @@
 					})
 				}
 				
+			},
+			async load_user_infos(){
+				var user_datas = await operation.get_user_infos(this.student_id_input)
+				console.log(user_datas.ret_data)
+				user_datas = user_datas.ret_data
+				//var keys = Object.keys(getApp().globalData.user_infos)
+				for (const i in getApp().globalData.user_infos) 
+				{
+					console.log(i)
+					if (user_datas[i] != undefined)
+					{
+						getApp().globalData.user_infos[i] = user_datas[i]
+					}
+				}
+				// U202120222 111111
+				console.log(getApp().globalData.user_infos)
 			},
 			//输入框失去焦点触发事件
 			doInput(val){
