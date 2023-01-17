@@ -5,7 +5,6 @@ exports.main = async (event, context) => {
 		stu_id_input,
 		pwd_input
 	} = event
-	//返回数据给客户端
 	const res = await db.collection("user").where({
 		'student_id':stu_id_input
 	})
@@ -28,7 +27,6 @@ exports.main = async (event, context) => {
 		.where({
 			'student_id':stu_id_input
 		}).get()
-		//console.log(final_res.data[0])
 		if (final_res.data[0] == undefined)
 		{
 			return "incorrect password"
@@ -41,6 +39,5 @@ exports.main = async (event, context) => {
 		{
 			return "incorrect password"
 		}
-		//console.log(final_res)
 	}
 };
