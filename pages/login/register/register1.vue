@@ -1,9 +1,18 @@
 <template>
-	<view class="my-container gradient"   style="position: fixed; top: 0; left: 0; right: 0; bottom: 0">
+	<view class="my-container gradient" style="position: fixed; top: 0; left: 0; right: 0; bottom: 0">
+		<image mode="scaleToFill" class="cushion_image" src="../../../static/弯曲背景图.png"></image>
 		<view class="header_box">
 			HUST碳排放
 		</view>
 		<view id="register1_info_box">
+			<!-- <uni-forms ref="register_form" :rules="rules" :model="user_main_info" labelWidth="40rpx">
+				<uni-forms-item label="昵称" required name="nickname">
+					<input v-model="user_main_info.input_nickname" placeholder="请输入昵称" auto-focus="true" class="register1_input"/>
+				</uni-forms-item>
+				<uni-forms-item label="学号" required name="student_id">
+					<input v-model="user_main_info.input_student_id" placeholder="请输入学号" class="register1_input"/>
+				</uni-forms-item>
+			</uni-forms> -->
 			<view class="register1_light_grey_small_word">
 				昵称
 			</view>
@@ -162,5 +171,7 @@
 </script>
 
 <style lang="scss">
-
+	@import '@/pages/login/common_scss/login_register.scss';
+	
+	
 </style>
