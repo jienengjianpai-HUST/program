@@ -1,17 +1,77 @@
-.header_box {
-	margin-top: 45rpx;
-	height: 133rpx;
-	width: 100%;
-	font-weight: bolder;
-	font-size: 92rpx;
-	line-height: 133rpx;
-	text-align: center;
+@font-face {
+	font-family:Alimama_ShuHeiTi_Bold ;
+	font-weight:normal ;
+	src: url("/font/Alimama_ShuHeiTi_Bold.ttf") format("truetype");
 }
 
-.cushion_image{
+:root {
+	--register_left_margin: 65; // rpx
+	--register_right_margin: 65;// rpx
+}
+
+.font_constrain {
+	font-family: Alimama_ShuHeiTi_Bold;
+	font-weight: bold;
+}
+
+.header_box {
+	height: 180rpx;
+	width: 100%;
+	// border: 1rpx solid;
+}
+
+.header_text {
+	margin-top: 100rpx;
+	height: 130rpx;
+	font-weight: bolder;
+	font-size: 92rpx;
+	line-height: 120rpx;
+	text-align: center;
+	
+}
+
+.cushion_image_1 {
 	position: absolute;
-	top: 42rpx;
-	bottom: 461rpx;
+	top: 0rpx;
+	height: 520rpx;
 	width: 100%;
 	z-index: -1;
+	
+}
+
+.cushion_image_2 {
+	position: absolute;
+	top: 520rpx;
+	height: 820rpx;
+	width: 100%;
+	z-index: -1;
+}
+
+.register1_light_grey_small_word {
+	margin: 0% 615rpx 40rpx 0rpx;
+	width: 135rpx;
+	height: 35rpx;
+	font-weight: 500;
+	font-size: 30rpx;
+	font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+	// 
+}
+
+.register1_input {
+	border-bottom: 3rpx solid;
+	margin-bottom: 30rpx;
+	width: 620rpx;
+	font-size: 40rpx;
+}
+
+.register_green_primary_button {
+	height: 132rpx;
+	width: 54%;
+	margin: 0% 23% 0% 23%;
+	background-color: lawngreen;
+	border-radius: 20rpx;
+	border: 1rpx solid;
+	font-size: 64rpx;
+	text-align: center;
+	line-height: 132rpx;
 }

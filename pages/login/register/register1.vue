@@ -1,18 +1,13 @@
 <template>
-	<view class="my-container gradient" style="position: fixed; top: 0; left: 0; right: 0; bottom: 0">
-		<image mode="scaleToFill" class="cushion_image" src="../../../static/弯曲背景图.png"></image>
+	<view class="my-container gradient font_constrain" style="position: fixed; top: 0; left: 0; right: 0; bottom: 0">
+		<image mode="scaleToFill" class="cushion_image_1" src="../../../static/弯曲背景图.png"></image>
+		<image mode="scaleToFill" class="cushion_image_2" src="../../../static/白板背景.png"></image>
 		<view class="header_box">
-			HUST碳排放
+			<view class="header_text">
+				HUST碳排放
+			</view>
 		</view>
 		<view id="register1_info_box">
-			<!-- <uni-forms ref="register_form" :rules="rules" :model="user_main_info" labelWidth="40rpx">
-				<uni-forms-item label="昵称" required name="nickname">
-					<input v-model="user_main_info.input_nickname" placeholder="请输入昵称" auto-focus="true" class="register1_input"/>
-				</uni-forms-item>
-				<uni-forms-item label="学号" required name="student_id">
-					<input v-model="user_main_info.input_student_id" placeholder="请输入学号" class="register1_input"/>
-				</uni-forms-item>
-			</uni-forms> -->
 			<view class="register1_light_grey_small_word">
 				昵称
 			</view>
@@ -24,33 +19,19 @@
 			<view class="register1_light_grey_small_word">
 				密码
 			</view>
-			<input  password="true" class="register1_input" v-model="input_pwd"/>
-			<block v-if="pwd_clicked">
-				<view id=""  @click="eye_switch('密码')">
-					<image style="height: 40rpx;width: 60rpx;" src="../../../static/eyes/隐藏密码.png"></image>
-				</view>
-			</block>
-			<block v-else>
-				<view id=""  @click="eye_switch('密码')">
-					<image style="height: 40rpx;width: 60rpx;" src="../../../static/eyes/显示密码.png"></image>
-				</view>
-			</block>
+			<input :password="!pwd_clicked" class="register1_input" v-model="input_pwd"/>
+			<view id="register1_eye_pwd">
+				<image id="register1_eye_pwd_img" @click="eye_switch('密码')" style="height: 40rpx;width: 60rpx;" :src="image_path_pwd"></image>
+			</view>
 			<view class="register1_light_grey_small_word">
 				确认密码
 			</view>
-			<input  password="true" class="register1_input" v-model="input_confirm_pwd"/>
-			<block v-if="confirm_pwd_clicked">
-				<view id="register1_eye_pwd" @click="eye_switch('确认密码')">
-					<image style="height: 40rpx;width: 60rpx;" src="../../../static/eyes/隐藏密码.png"></image>
-				</view>
-			</block>
-			<block v-else>
-				<view id="register1_eye_confirm_pwd" @click="eye_switch('确认密码')">
-					<image style="height: 40rpx;width: 60rpx;" src="../../../static/eyes/显示密码.png"></image>
-				</view>
-			</block>
+			<input :password="!confirm_pwd_clicked" class="register1_input" v-model="input_confirm_pwd"/>
+			<view id="register1_eye_confirm_pwd">
+				<image id="register1_eye_confirm_pwd_img" @click="eye_switch('确认密码')" style="height: 40rpx;width: 60rpx;" :src="image_path_cpwd"></image>
+			</view>
 		</view>
-		<view id="register1_button_next" @click="check_for_next">
+		<view class="register_green_primary_button" @click="check_for_next">
 			下一步
 		</view>
 	</view>
@@ -65,6 +46,8 @@
 			return {
 				pwd_clicked:true,
 				confirm_pwd_clicked:true,
+				image_path_cpwd: "../../../static/eyes/显示密码.png",
+				image_path_pwd: "../../../static/eyes/显示密码.png",
 				
 				input_nickname:"",
 				input_student_id:"",
@@ -77,11 +60,27 @@
 			{
 				if (loc == "确认密码")
 				{
-					this.confirm_pwd_clicked != this.confirm_pwd_clicked
+					this.confirm_pwd_clicked = !this.confirm_pwd_clicked
+					if (this.confirm_pwd_clicked)
+					{
+						this.image_path_cpwd = "../../../static/eyes/显示密码.png"
+					}
+					else
+					{
+						this.image_path_cpwd = "../../../static/eyes/隐藏密码.png"
+					}
 				}
 				else if (loc == "密码")
 				{
-					this.pwd_clicked != this.pwd_clicked
+					this.pwd_clicked = !this.pwd_clicked
+					if (this.pwd_clicked)
+					{
+						this.image_path_pwd = "../../../static/eyes/显示密码.png"
+					}
+					else
+					{
+						this.image_path_pwd = "../../../static/eyes/隐藏密码.png"
+					}
 				}
 			},
 			check_for_next()
@@ -173,5 +172,23 @@
 <style lang="scss">
 	@import '@/pages/login/common_scss/login_register.scss';
 	
+	#register1_info_box {
+		height: 700rpx;
+		margin-left: 65rpx;
+		// border: 1px solid;
+	}
 	
+	#register1_eye_confirm_pwd_img {
+		z-index: 1;
+		position: absolute;
+		top: 850rpx;
+		left: 600rpx;
+	}
+	
+	#register1_eye_pwd_img {
+		z-index: 1;
+		position: absolute;
+		top: 680rpx;
+		left: 600rpx;
+	}
 </style>
