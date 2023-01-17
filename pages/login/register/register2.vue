@@ -13,13 +13,23 @@
 				<uni-forms ref="valiform" ></uni-forms>
 			</view>
 		</view>
+		<view>
+			<image @click="set_a" :src="image_src" mode="scaleToFill" style="height: 200rpx; width: 200rpx;"></image>
+		</view>
 	</view>
 </template>
 
 <script>
 	export default {
+		data() {
+			return {
+				image_src: "../../../static/initial_avatar.jpg",
+			}
+		},
 		methods:{
-			
+			set_a() {
+				this.image_src = "../../../static/节能活动照片.jpg"
+			}
 		},
 		onLoad() {
 			uni.navigateTo({

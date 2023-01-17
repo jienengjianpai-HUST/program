@@ -132,15 +132,17 @@
 						nickname_:this.input_nickname,
 						student_id_:this.input_student_id,
 						password_:this.input_pwd,
+						carbon_score_left_:0,
+						carbon_score_all_:0,
 					},
 				}).then(res => {
 					res = res.result
 					console.log(res)
 					if (res == "注册成功")
-					{//U20212022 111111
-						console.log(this.input_student_id)
+					{
+						// console.log(this.input_student_id)
 						getApp().globalData.user_infos.student_id = this.input_student_id
-						console.log(getApp().globalData.user_infos.student_id)
+						// console.log(getApp().globalData.user_infos.student_id)
 						uni.navigateTo({
 							url:"/pages/login/register/register2"
 						})

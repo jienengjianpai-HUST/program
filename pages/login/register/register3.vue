@@ -5,7 +5,7 @@
 		</view>
 		<view id="register3_avatar_setting_box">
 			<view id="register3_avatar_setting_button_box">
-				<image mode="scaleToFill" src="../../../static/initial_avatar.jpg" style="border-radius: 50%;height: 154rpx;width: 154rpx;"  @click="set_avatar"></image>
+				<image mode="scaleToFill" :src="image_src" id="avatar_id" style="border-radius: 50%;height: 154rpx;width: 154rpx;"  @click="set_avatar"></image>
 				<image mode="scaleToFill" src="../../../static/照相机.png" style="height: 44rpx;width: 44rpx;"></image>
 				<view id="register3_text_setting_avatar">
 					请设置您的头像
@@ -32,9 +32,11 @@
 </template>
 
 <script>
+	const operation = uniCloud.importObject("user_db_operation")
 	export default {
 		data() {
 			return {
+				image_src: "../../../static/initial_avatar.jpg",
 				user_infos:{
 					birthday:"",
 					sex:""
@@ -63,28 +65,68 @@
 			}
 		},
 		methods: {
-			set_avatar(){
-				
+			set_avatar()
+			{
+				const t = this
+				uni.chooseImage({
+					count:1,
+					success(res) {
+						t.image_src = res.tempFilePaths[0]
+						//t.image_src = "../../../static/节能活动照片.jpg"
+						console.log(t.image_src)
+					},
+					fail() {
+						uni.showToast({
+							title:"请重试",
+							icon:'error'
+						})
+					}
+				})
+			},
+			upload_image(image_path)
+			{
+				getApp().globalData.user_infos.student_id = "U202120211"
+				getApp().globalData.user_infos._id = "63c3f1acf43e607808f7c488"
+				uniCloud.uploadFile({
+					filePath: image_path,
+					cloudPath: String(getApp().globalData.user_infos._id) + "_avatar.jpg",
+					onUploadProgress(progressEvent) {
+						console.log(progressEvent);
+						var percentCompleted = Math.round(
+							(progressEvent.loaded * 100) / progressEvent.total
+						);
+					}
+				}).then(res => {
+					console.log(res)
+					
+				}).catch(err => {
+					console.log(err)
+				})
 			},
 			submit_form: function(form){
-				this.$refs[form].validate().then(res => {
+				if (this.image_src == "../../../static/initial_avatar.jpg")
+				{
 					uni.showToast({
-						title: `信息填写成功！`,
-						icon:'success'
+						title: '请设置头像',
+						icon:'error'
 					})
-					//getApp().globalData.user_infos.student_id = "U202120211"
+					return 
+				}
+				this.$refs[form].validate().then(res => {
 					uniCloud.callFunction({
 						name:"user_register_secondary_info",
 						data:{
 							student_id:getApp().globalData.user_infos.student_id,
 							birthday:this.user_infos.birthday,
-							sex:this.user_infos.sex
+							sex:this.user_infos.sex,
+							avatar:this.image_src
 						},
 					}).then(res => {
 						res = res.result
 						console.log(res)
 						if (res == "注册成功")
 						{
+							this.upload_image(this.image_src)
 							uni.navigateTo({
 								url:"/pages/login/login"
 							})
