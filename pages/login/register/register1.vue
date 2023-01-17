@@ -50,6 +50,7 @@
 <script>
 	import student_id_validation from '../../common_js/validation_funcs.js'
 	import password_validation from '../../common_js/validation_funcs.js'
+	const operation = uniCloud.importObject("user_db_operation")
 	export default {
 		data() {
 			return {
