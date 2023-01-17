@@ -27,7 +27,24 @@
 		</view>
 		<view id="my_detail_display">
 			<view id="my_detail_nav_bar">
-				<view @click="this.my_check_project_participation_record" id="my_nav_bar_project_participation_record" class="my_nav_bar_common_unselected">项目参与记录</view>
+				<block v-if="my_nav_bar_select == 'ranking'">
+					<view @click="this.my_check_ranking" id="my_nav_bar_ranking" class="my_nav_bar_common_selected">排名</view>
+				</block>
+				<block v-else>
+					<view @click="this.my_check_ranking" id="my_nav_bar_ranking" class="my_nav_bar_common_unselected">排名</view>
+				</block>
+				<block v-if="my_nav_bar_select == 'project_participation_record'">
+					<view @click="this.my_check_project_participation_record" id="my_nav_bar_project_participation_record" class="my_nav_bar_common_selected">项目参与记录</view>
+				</block>
+				<block v-else>
+					<view @click="this.my_check_project_participation_record" id="my_nav_bar_project_participation_record" class="my_nav_bar_common_unselected">项目参与记录</view>
+				</block>
+				<block v-if="my_nav_bar_select == 'carbon_score_change_record'">
+					<view @click="this.my_check_carbon_score_change_record" id="my_nav_bar_carbon_score_change_record" class="my_nav_bar_common_selected">碳积分收支记录</view>
+				</block>
+				<block v-else>
+					<view @click="this.my_check_carbon_score_change_record" id="my_nav_bar_carbon_score_change_record" class="my_nav_bar_common_unselected">碳积分收支记录</view>
+				</block>
 			</view>
 			<view id="my_each_detail_display">
 				<block v-if="my_nav_bar_select == 'ranking'">
@@ -57,7 +74,7 @@
 							<image class="my_detail_participation_activity_area_image" :src="user_participation.src"></image>
 							<text class="my_detail_participation_activity_area_texts" id="my_detail_participation_activity_area_time">时间：{{user_participation.time}}</text>
 							<text class="my_detail_participation_activity_area_texts" id="my_detail_participation_activity_area_addr">地点：{{user_participation.addr}}</text>
-							<text class="my_detail_participation_activity_area_texts" id="my_detail_participation_activity_area_people">人数：{{user_participation.people}}</text>
+							<text class="my_detail_participation_activity_area_texts" id="my_detail_participation_activity_area_people">地点：{{user_participation.people}}</text>
 						</view>
 					</scroll-view>
 				</block>
@@ -87,7 +104,7 @@
 				user_carbon_score: 32,
 				user_activity_participation_times: 64,
 				user_ranking: 16,
-				my_nav_bar_select: 'project_participation_record',
+				my_nav_bar_select: 'ranking',
 				user_ranking: 8,
 				all_user_rankings: [1, 2, 3, 4, 5],
 				all_user_usernames: ["环保勇士", "绿色骑士", "节约公主", "减排卫士", "能源战士"],
@@ -174,22 +191,22 @@
 			},
 		},
 		onLoad() {
-			// const db = uniCloud.database();
-			// db.collection("person_test").
-			// where("name == '张三'").
-			// get().
-			// then((res)=>{
-			// 	console.log(res)
-			// 	var all_info = res.result.data
-			// 	if (all_info.length == 1)
-			// 	{
-			// 		this.user_property = all_info[0]
-			// 	}
-			// 	console.log(this.user_property)
-			// }).catch((err)=>{
-			// 	console.log(err.code); // 打印错误码
-			// 	console.log(err.message); // 打印错误内容
-			// })
+			const db = uniCloud.database();
+			db.collection("person_test").
+			where("name == '张三'").
+			get().
+			then((res)=>{
+				console.log(res)
+				var all_info = res.result.data
+				if (all_info.length == 1)
+				{
+					this.user_property = all_info[0]
+				}
+				console.log(this.user_property)
+			}).catch((err)=>{
+				console.log(err.code); // 打印错误码
+				console.log(err.message); // 打印错误内容
+			})
 		}
 		
 	}
@@ -303,21 +320,21 @@
 	
 	#my_nav_bar_ranking {
 		width: 110rpx;
-		
-		
+		margin-left: 10rpx;
+		border-top-left-radius: 18rpx;
+		border-bottom-left-radius: 18rpx;
 		border-right: solid 3rpx black;
 	}
 	
 	#my_nav_bar_project_participation_record {
-		margin-left: 10rpx;
-		width: 670rpx;
-		border-radius: 18rpx;
+		width: 260rpx;
 	}
 	
 	#my_nav_bar_carbon_score_change_record {
 		width: 300rpx;
 		border-left: solid 3rpx black;
-		
+		border-top-right-radius: 18rpx;
+		border-bottom-right-radius: 18rpx;
 	}
 	
 	#my_each_detail_display {
