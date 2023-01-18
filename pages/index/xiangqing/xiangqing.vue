@@ -1,21 +1,23 @@
 <template>
 	<view class="baoming-box font_constrain"  >
-		<image src="../../../static/background/07_mohu.png" style="width:100%;height: 100%; z-index: -1;position: fixed;opacity: 1;"></image>
+		<image src="../../../static/HUST碳风格化背景.jpeg" style="width:100%;height: 100%; z-index: -1;position: fixed;opacity: 0.9;"></image>
+		<view class="back_button" @click="toBack()">
+		</view>
 		<view class="header_text">
 			活动详情
 		</view>
 		<view class="item-box1" >
-			<view class="title1">活动名：123{{detail.title}}</view>
-			<view >时间：</view>
+			<view class="title1">活动名：{{detail.title}}</view>
+			<!-- <view >地点：</view> -->
 			<view >碳积分：</view>
 			<view >发起人：{{detail.nickname}}</view>
 		</view>
 		
 		<view class="item-box1" >
 			<view class="title2">活动流程</view>
-			<view >报名开始时间：</view>
-			<view >报名结束时间：</view>
-			<view >活动举行时间：</view>
+			<view >报名开始时间：{{detail.sign_start}}</view>
+			<view >报名结束时间：{{detail.sign_end}}</view>
+			<view >活动举行时间：{{detail.pro_start}}</view>
 		</view>
 		
 		<view class="item-box1" >
@@ -25,7 +27,7 @@
 		
 		<view class="button-box" style="display: flex;">
 			
-			<button @click="toPageSign()">开始报名</button>
+			<button @click="toPageSign(detail._id)">开始报名</button>
 		</view>
 	</view>
 	
@@ -60,6 +62,11 @@
 				uni.navigateTo({
 					url:"/pages/index/xiangqing/baoming-huodong/baoming-huodong?id="+e
 				})
+			},
+			toBack(){
+				uni.navigateTo({
+					url:"/pages/index/baoming/baoming"
+				})
 			}
 		}
 		
@@ -74,6 +81,14 @@
 }
 .font_constrain {
 	font-family: Alimama_ShuHeiTi_Bold;
+}
+.back_button{
+	width:0;
+	height:0;
+	border-top:30rpx solid transparent;
+	border-right:30rpx solid black;
+	border-bottom:30rpx solid transparent;
+	padding: 1rpx;
 }
 .baoming-box{
 	position: fixed;

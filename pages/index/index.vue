@@ -1,7 +1,8 @@
 <template>
-	<view class="container gradient text"  style="position: fixed; top: 0; left: 0; right: 0; bottom: 0">
+	<view class="container font_constrain" >
+		<image src="../../static/background/07_mohu.png" style="width:100%;height: 100%; z-index: -1;position: fixed;opacity: 0.9;"></image>
 	<uni-search-bar placeholder="搜索..." bgColor="#EEEEEE"  />
-		    <swiper class="swiper" circular="true" indicator-dots="true">
+		    <!-- <swiper class="swiper" circular="true" indicator-dots="true">
 				<swiper-item >
 					<view class="swiper-item">活动图片</view>
 				</swiper-item>
@@ -11,7 +12,7 @@
 				<swiper-item>
 					<view class="swiper-item ">活动图片</view>
 				</swiper-item>
-			</swiper>
+			</swiper> -->
     <view class="index-button" >
 		<button  class="button" type="default" @click="navigateToNewPage1">项目申报</button>
 		<button  class="button" type="default" @click="navigateToNewPage2">项目报名</button>
@@ -49,9 +50,23 @@
 </script>
 
 <style>
+	@font-face {
+		font-family:Alimama_ShuHeiTi_Bold ;
+		font-weight:normal ;
+		src: url("/font/Alimama_ShuHeiTi_Bold.ttf") format("truetype");
+	}
+	.font_constrain {
+		font-family: Alimama_ShuHeiTi_Bold;
+	}
 	.container {
-		padding: 20px;
-		line-height: 24px;
+		position: fixed;
+		z-index: 0;
+		width: 100%;
+		height: 100%;
+	}
+	.index-button{
+		background-color:rgba(255, 255, 255, 0.4);
+		height: 100%;
 	}
 	.swiper {
 		height: 300rpx;
@@ -65,6 +80,9 @@
 			text-align: center;
 	}
 	.button{
+		border: white;
 		margin-bottom: 50rpx;
+		margin-left: 50rpx;
+		margin-right: 50rpx;
 	}
 </style>
