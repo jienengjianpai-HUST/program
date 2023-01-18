@@ -31,7 +31,7 @@
 				<image id="register1_eye_confirm_pwd_img" @click="eye_switch('确认密码')" style="height: 40rpx;width: 60rpx;" :src="image_path_cpwd"></image>
 			</view>
 		</view>
-		<view class="register_green_primary_button" @click="check_for_next">
+		<view class="register_green_primary_button" @click="check_for_next" style="margin-top: 40rpx;">
 			下一步
 		</view>
 	</view>
