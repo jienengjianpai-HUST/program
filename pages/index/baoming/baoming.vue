@@ -1,136 +1,36 @@
 <template>
-	<view class="baoming-container gradient" style="position: fixed; top: 0; left: 0; right: 0; bottom: 0">
-		<uni-search-bar placeholder="搜索..." bgColor="#EEEEEE"  />
-		<view class="community-content text">
-			<uni-card @click="toPagexiangqing">
-				<template v-slot:actions>
-					<view class="card-actions1 " style="float: left;">
-						<view class="card-actions-item" >
-							<text class="card-actions-item-text">项目名称</text>
-						</view>
-						<view class="card-actions-item" >
-							<text class="card-actions-item-text">地点</text>
-						</view>
-						<view class="card-actions-item" >
-							<text class="card-actions-item-text">时间</text>
-						</view>
-						<view class="card-actions-item">
-							<text class="card-actions-item-text">碳积分</text>
-						</view>
-						<view class="card-actions-item">
-							<text class="card-actions-item-text">发起者</text>
-						</view>
-					</view>
-					<view class="card-actions2" style="float: right;">
-						<image src="../../../static/c3.png" style="height: 150rpx; width: 100rpx;"></image>
-						<view class="card-actions2-item">
-							已报名：报名人数/总人数
-						</view>
-					</view>
-				</template>
-			</uni-card>
-			
-			<uni-card @click="toPagexiangqing">
-				<template v-slot:actions>
-					<view class="card-actions1" style="float: left;">
-						<view class="card-actions-item" >
-							<text class="card-actions-item-text">项目名称</text>
-						</view>
-						<view class="card-actions-item" >
-							<text class="card-actions-item-text">地点</text>
-						</view>
-						<view class="card-actions-item" >
-							<text class="card-actions-item-text">时间</text>
-						</view>
-						<view class="card-actions-item">
-							<text class="card-actions-item-text">碳积分</text>
-						</view>
-						<view class="card-actions-item">
-							<text class="card-actions-item-text">发起者</text>
-						</view>
-					</view>
-					<view class="card-actions2" style="float: right;">
-						<image src="../../../static/c3.png" style="height: 150rpx; width: 100rpx;"></image>
-						<view class="card-actions2-item">
-							已报名：报名人数/总人数
-						</view>
-					</view>
-				</template>
-			</uni-card>
-			
-			<uni-card @click="toPagexiangqing">
-				<template v-slot:actions>
-					<view class="card-actions1" style="float: left;">
-						<view class="card-actions-item" >
-							<text class="card-actions-item-text">项目名称</text>
-						</view>
-						<view class="card-actions-item" >
-							<text class="card-actions-item-text">地点</text>
-						</view>
-						<view class="card-actions-item" >
-							<text class="card-actions-item-text">时间</text>
-						</view>
-						<view class="card-actions-item">
-							<text class="card-actions-item-text">碳积分</text>
-						</view>
-						<view class="card-actions-item">
-							<text class="card-actions-item-text">发起者</text>
-						</view>
-					</view>
-					<view class="card-actions2" style="float: right;">
-						<image src="../../../static/c3.png" style="height: 150rpx; width: 100rpx;"></image>
-						<view class="card-actions2-item">
-							已报名：报名人数/总人数
-						</view>
-					</view>
-				</template>
-			</uni-card>
-			
-			<uni-card @click="toPagexiangqing">
-				<template v-slot:actions>
-					<view class="card-actions1" style="float: left;">
-						<view class="card-actions-item" >
-							<text class="card-actions-item-text">项目名称</text>
-						</view>
-						<view class="card-actions-item" >
-							<text class="card-actions-item-text">地点</text>
-						</view>
-						<view class="card-actions-item" >
-							<text class="card-actions-item-text">时间</text>
-						</view>
-						<view class="card-actions-item">
-							<text class="card-actions-item-text">碳积分</text>
-						</view>
-						<view class="card-actions-item">
-							<text class="card-actions-item-text">发起者</text>
-						</view>
-					</view>
-					<view class="card-actions2" style="float: right;">
-						<image src="../../../static/c3.png" style="height: 150rpx; width: 100rpx;"></image>
-						<view class="card-actions2-item">
-							已报名：报名人数/总人数
-						</view>
-					</view>
-				</template>
-			</uni-card>
-			
+    <view class="baoming-box">
+		<view class="item-box" v-for="item in userArr" :key="item._id">
+			<view style="float: ">
+			<view >活动名：{{item.title}}</view>
+			<view >发起人：{{item.nickname}}</view>
+			<view >最大人数：{{item.sum}}</view>
+			<button @click="toPageInformation(item._id)">查看详情</button>
+			</view>
+		</view>
 	</view>
-	
-	</view>
-	
 </template>
 
 <script>
 	export default {
 		data() {
 			return {
-				
+				userArr:[],
 			};
 		},
+		onLoad(){
+			uniCloud.callFunction({
+				name:"ShowProject",
+				data:{}
+			}).then(res=>{
+				console.log(res)
+				this.userArr=res.result.data
+			})
+		},
 		methods:{
-			toPagexiangqing(){
+			toPageInformation(e){
 				uni.navigateTo({
-					url:'/pages/index/xiangqing/xiangqing'
+					url:"/pages/index/xiangqing/xiangqing?id="+e
 				})
 			}
 		}
@@ -138,10 +38,13 @@
 </script>
 
 <style lang="scss">
-.card-actions2{
-	margin-bottom: 20rpx;
+button{
+	padding: 30rpx;
 }
-.card-actions1{
-	margin-left: 50rpx;
+.item-box{
+	padding: 100rpx;
+	border:3rpx solid;
+	border-radius: 12px;
+	margin: 40rpx;
 }
 </style>

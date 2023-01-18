@@ -1,0 +1,7 @@
+{
+  "name": "GetProject",
+  "dependencies": {},
+  "extensions": {
+    "uni-cloud-jql": {}
+  }
+}

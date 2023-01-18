@@ -1,0 +1,7 @@
+{
+  "name": "AddToSignlist",
+  "dependencies": {},
+  "extensions": {
+    "uni-cloud-jql": {}
+  }
+}
