@@ -1,83 +1,115 @@
 <template>
-	<view class="xiangqing-container gradient" style="position: fixed; top: 0; left: 0; right: 0; bottom: 0">
-		<view class="xiangqing-box1">
-			<view class="box1-title text1">
-				活动流程
-			</view>
-			<view class="box1-title text">
-				报名开始时间：
-			</view>
-			<view class="box1-title text">
-				报名结束时间:
-			</view>
-			<view class="box1-title text">
-				活动开始时间:
-			</view>
-			<view class="box1-title text">
-				活动结束时间:
-			</view>
+	<view class="baoming-box font_constrain"  >
+		<image src="../../../static/background/07_mohu.png" style="width:100%;height: 100%; z-index: -1;position: fixed;opacity: 1;"></image>
+		<view class="header_text">
+			活动详情
+		</view>
+		<view class="item-box1" >
+			<view class="title1">活动名：123{{detail.title}}</view>
+			<view >时间：</view>
+			<view >碳积分：</view>
+			<view >发起人：{{detail.nickname}}</view>
 		</view>
 		
-		<view class="xiangqing-box2">
-			<view class="box1-title text1">
-				活动内容
-				
-			</view>
-			
-			
+		<view class="item-box1" >
+			<view class="title2">活动流程</view>
+			<view >报名开始时间：</view>
+			<view >报名结束时间：</view>
+			<view >活动举行时间：</view>
 		</view>
 		
-		<view class="xiangqing-box3 text1">
-			<view class="box1-title">
-				活动评论
-			</view>
-			
-			
+		<view class="item-box1" >
+			<view class="title3">活动内容</view>
+			<view class="content">{{detail.content}}</view>
 		</view>
-		<view class="baoming-button">
-			<button @click="toPagebaominghuodong" style="text-align: center; margin: 50rpx;" class="button"> 开始报名</button>
+		
+		<view class="button-box" style="display: flex;">
+			
+			<button @click="toPageSign()">开始报名</button>
 		</view>
 	</view>
+	
 </template>
 
 <script>
+	let id ;
 	export default {
 		data() {
 			return {
-				
+				detail:{}
 			};
 		},
-		methods: {
-			toPagebaominghuodong(){
+		onLoad(e) {
+			console.log(e)
+			id=e.id
+			this.getDetail();
+		},
+		methods:{
+			getDetail(){
+				uniCloud.callFunction({
+					name:"GetProject",
+					data:{
+						id
+					}
+				}).then(res=>{
+					console.log(res);
+					this.detail=res.result.data[0]
+				})
+			},
+			toPageSign(e){
 				uni.navigateTo({
-					url:'/pages/index/xiangqing/baoming-huodong/baoming-huodong'
+					url:"/pages/index/xiangqing/baoming-huodong/baoming-huodong?id="+e
 				})
 			}
 		}
+		
 	}
 </script>
 
-
-
 <style lang="scss">
-.xiangqing-box1{
-	border: solid black  7rpx;
-	margin: 30rpx;
-	border-radius: 15rpx;
+@font-face {
+	font-family:Alimama_ShuHeiTi_Bold ;
+	font-weight:normal ;
+	src: url("/font/Alimama_ShuHeiTi_Bold.ttf") format("truetype");
 }
-.xiangqing-box2{
-	border: solid black 7rpx;
-	margin: 30rpx;
+.font_constrain {
+	font-family: Alimama_ShuHeiTi_Bold;
 }
-.xiangqing-box3{
-	border: solid black 7rpx;
-	margin: 30rpx;
+.baoming-box{
+	position: fixed;
+	z-index: 0;
+	width: 100%;
+	height: 100%;
+	
 }
-.text{
-	font-size: 35rpx;
+.item-box1{
+	padding: 80rpx;
+	border:  3rpx ;
+	border-radius: 12px;
+	margin-bottom: 30rpx;
+	margin-left: 30rpx;
+	margin-right: 30rpx;
+	margin-top: 30rpx;
+	font-weight: bolder;
+	//backdrop-filter: blur(3px);
+	//background-color: white;
+	//opacity: 0.7;
+	background-color:rgba(255, 255, 255, 0.4); 
 }
-.text1{
-	font-size: 45rpx;
-	font-weight: bold;
+.button-box button{
+	padding: 20rpx;
+	background-color: rgb(147, 255, 32);
+	border-radius: 14px;
+}
+.button-box font{
+	color: white;
+}
+.header_text {
+	margin-top: 30rpx;
+	height: 100rpx;
+	font-weight: bolder;
+	font-size: 72rpx;
+	line-height: 120rpx;
+	text-align: center;
 }
 </style>
