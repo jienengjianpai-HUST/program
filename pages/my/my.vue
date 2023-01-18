@@ -1,5 +1,6 @@
 <template>
 	<view class="my-container gradient"   style="position: fixed; top: 0; left: 0; right: 0; bottom: 0">
+		<image mode="heightFix" src="../../static/HUST碳风格化背景.jpeg" style="position: absolute;top: 0%;height: 100%; z-index: -1;"></image>
 		<view class="header_info">
 			<image :src="user_avatar_addr" class="avatar_like_item" id="my_avatar"></image>
 			<view id="my_name_and_id">
