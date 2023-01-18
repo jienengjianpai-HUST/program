@@ -180,15 +180,15 @@
 	
 	#register1_eye_confirm_pwd_img {
 		z-index: 1;
-		position: absolute;
-		top: 850rpx;
-		left: 600rpx;
+		position: relative;
+		top: -98rpx;
+		left: 530rpx;
 	}
 	
 	#register1_eye_pwd_img {
 		z-index: 1;
-		position: absolute;
-		top: 680rpx;
-		left: 600rpx;
+		position: relative;
+		top: -98rpx;
+		left: 530rpx;
 	}
 </style>
