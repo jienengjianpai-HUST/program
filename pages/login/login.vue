@@ -22,9 +22,13 @@
 			<input type="password" class="login_input" id="login_input_2" placeholder="密码" v-model="password_input"/>
 		</view>
 		<view id="login_options" style="font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif; font-weight: 100; line-height: 45rpx; display: flex; height: 47rpx; margin: 0rpx 102rpx 20rpx 102rpx;">
-			<label>
-				<checkbox/><text style="font-weight: 100;">记住密码</text>
-			</label>
+			<!-- @click="this.remeber_pwd = !this.remeber_pwd" -->
+			<checkbox-group @change="check_reme">
+				<label> 
+					<checkbox :checked="this.remeber_pwd" value="reme"/><text style="font-weight: 100;">记住密码</text>
+				</label>
+			</checkbox-group>
+			
 			<view id="register" @click="toPageRegister" style="margin: 0% 0% 0% 210rpx;">注册账号</view>
 		</view>
 		<view id="login_button" style="height: 144rpx; margin-top: 80rpx;">
@@ -45,15 +49,61 @@
 				owl2:'owl2',
 				student_id_input:"",
 				password_input:"",
+				remeber_pwd:false, //true means remember
 			};
 		},
+		mounted() {
+			const stu_id = uni.getStorageSync('stu_id')
+			const pwd = uni.getStorageSync('pwd')
+			console.log(stu_id) // U202120211 2023_HUST_JNJP
+			console.log(pwd) // U202120211 2023_HUST_JNJP
+			if (stu_id && pwd)
+			{
+				this.remeber_pwd = true
+				this.student_id_input = stu_id
+				this.password_input = pwd
+			}
+			else
+			{
+				this.remeber_pwd = false
+				this.student_id_input = ""
+				this.password_input = ""
+			}
+		},
 		methods: {
+			check_reme(e){
+				this.remeber_pwd = !this.remeber_pwd
+			},
+			remeber_password_or_not()
+			{
+				if (this.remeber_pwd)
+				{
+					console.log("reme")
+					console.log(this.student_id_input)
+					console.log(this.password_input)
+					uni.setStorageSync("stu_id", this.student_id_input)
+					uni.setStorageSync("pwd", this.password_input)
+				}
+				else
+				{
+					uni.removeStorageSync("stu_id")
+					uni.removeStorageSync("pwd")
+				}
+			},
 			toPageRegister(){
 				uni.navigateTo({
 					url:'/pages/login/register/register1'
 				})
 			},
 			toPageIndex(){
+				if (this.student_id_input && this.login_error_code == "学号为空")
+				{
+					this.login_error_code = ""
+				}
+				if ((this.password_input == "") && this.login_error_code == "")
+				{
+					this.login_error_code = "密码为空"
+				}
 				if (this.login_error_code != "")
 				{
 					uni.showToast({
@@ -63,7 +113,7 @@
 					return;
 				}
 				else
-				{//U202120210  2023_HUST_JNJP_
+				{//U202120210  2023_HUST_JNJP_ pages/login/login
 					var login_status = ""
 					uniCloud.callFunction({
 						name:"user_password_request",
@@ -80,6 +130,7 @@
 								title:"登录成功",
 								icon:"success"
 							})
+							this.remeber_password_or_not()
 							this.load_user_infos()
 							uni.switchTab({
 								url:'/pages/index/index'
