@@ -1,0 +1,7 @@
+{
+  "name": "ShowProject",
+  "dependencies": {},
+  "extensions": {
+    "uni-cloud-jql": {}
+  }
+}
