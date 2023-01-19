@@ -10,7 +10,7 @@ exports.main = async (event, context) => {
 		sign_end:event.sign_end,
 		pro_start:event.pro_start,
 		pro_end:event.pro_end,
-		
+		sign_people: 1,
 	})
 	console.log(res);
 	return res;

@@ -18,6 +18,12 @@
 		<button  class="button" type="default" @click="navigateToNewPage2">项目报名</button>
 		<button  class="button" type="default" @click="navigateToNewPage3">我的项目</button>
      </view>
+	 
+	 <view class="outline-box">
+	 	<view class="outline1">
+	 		序号
+	 	</view>
+	 </view>
 </view>
 	
 </template>
@@ -66,7 +72,7 @@
 	}
 	.index-button{
 		background-color:rgba(255, 255, 255, 0.4);
-		height: 100%;
+		height: 40%;
 	}
 	.swiper {
 		height: 300rpx;

@@ -56,6 +56,7 @@
 				}).then(res=>{
 					console.log(res);
 					this.detail=res.result.data[0]
+					//this.detail=res.result.data[0]
 				})
 			},
 			toPageSign(e){

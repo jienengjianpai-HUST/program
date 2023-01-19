@@ -29,6 +29,7 @@
 </template>
 
 <script>
+import student_id_validation from '../../../common_js/validation_funcs.js'
 	let id;
 	export default {
 		data() {
@@ -57,16 +58,63 @@
 			onSubmit(e){
 				console.log(e);
 				let detail=e.detail.value;
-				this.pushCloud2(detail)
-			},
-			pushCloud2(detail){
+				if(detail.nickname==''){
+					uni.showToast({
+						title:'姓名不能为空！',
+						icon:'error'
+					})
+					return
+				}
+				if(detail.major==''){
+					uni.showToast({
+						title:'学院不能为空！',
+						icon:'error'
+					})
+					return
+				}
+				if (detail.student_id== ""){
+					uni.showToast({
+						title:"学号不能为空!",
+						icon:'error'
+					})
+					return
+				}
+				else if (!(student_id_validation.student_id_validation(detail.student_id)))
+				{
+					uni.showToast({
+						title:"学号格式错误",
+						icon:'error'
+					})
+					return
+				}
+				if (detail.QQid== ""){
+					uni.showToast({
+						title:"qq号不能为空!",
+						icon:'error'
+					})
+					return
+				}
+				if (detail.tel== ""){
+					uni.showToast({
+						title:"电话号码不能为空!",
+						icon:'error'
+					})
+					return
+				}
 				uniCloud.callFunction({
-					name:"AddToProject_Sign_List",
+					name:"AddToSignList",
 					data:{
 						detail
 					}
 				}).then(res=>{
 					console.log(res)
+					uni.showToast({
+						title:"报名成功！",
+						icon:'success'
+					})
+					uni.switchTab({
+						url:"/pages/index/index"
+					})
 				})
 			},
 		}

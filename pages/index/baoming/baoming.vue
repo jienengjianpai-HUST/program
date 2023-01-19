@@ -3,13 +3,16 @@
 		<image src="../../../static/HUST碳风格化背景.jpeg" style="width:100%;height: 100%; z-index: -1;position: fixed;opacity: 0.9;"></image>
 		<view class="back_button" @click="toPageIndex()">
 		</view>
+		<scroll-view  class="scroll-box" scroll-y="true" >
 		<view class="item-box" v-for="item in userArr" :key="item._id" @click="toPageInformation(item._id)">
 			<view style="float: ">
 			<view >活动名：{{item.title}}</view>
 			<view >发起人：{{item.nickname}}</view>
 			<view >最大人数：{{item.sum}}</view>
+			<view >已报名人数：{{item.sign_people}}</view>
 			</view>
 		</view>
+		</scroll-view>
 	</view>
 </template>
 
@@ -46,20 +49,23 @@
 
 <style lang="scss">
 
-	@font-face {
+@font-face {
 		font-family:Alimama_ShuHeiTi_Bold ;
 		font-weight:normal ;
 		src: url("/font/Alimama_ShuHeiTi_Bold.ttf") format("truetype");
-	}
-	.font_constrain {
-		font-family: Alimama_ShuHeiTi_Bold;
-	}
+}
+.font_constrain {
+	font-family: Alimama_ShuHeiTi_Bold;
+}
 .baoming-box{
 	position: fixed;
 	z-index: 0;
 	width: 100%;
 	height: 100%;
 		
+}
+.scroll-box{
+	height: 85%;
 }
 .item-box{
 	padding: 100rpx;
