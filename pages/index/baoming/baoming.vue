@@ -3,6 +3,7 @@
 		<image src="../../../static/HUST碳风格化背景.jpeg" style="width:100%;height: 100%; z-index: -1;position: fixed;opacity: 0.9;"></image>
 		<view class="back_button" @click="toPageIndex()">
 		</view>
+		<uni-search-bar placeholder="搜索" bgColor="#EEEEEE" @confirm="search" />
 		<scroll-view  class="scroll-box" scroll-y="true" >
 		<view class="item-box" v-for="item in userArr" :key="item._id" @click="toPageInformation(item._id)">
 			<view style="float: ">

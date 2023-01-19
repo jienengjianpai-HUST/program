@@ -1,7 +1,7 @@
 <template>
 	<view class="container font_constrain" >
 		<image src="../../static/background/07_mohu.png" style="width:100%;height: 100%; z-index: -1;position: fixed;opacity: 0.9;"></image>
-	<uni-search-bar placeholder="搜索..." bgColor="#EEEEEE"  />
+	<!-- <uni-search-bar placeholder="搜索..." bgColor="#EEEEEE"  /> -->
 		    <!-- <swiper class="swiper" circular="true" indicator-dots="true">
 				<swiper-item >
 					<view class="swiper-item">活动图片</view>
@@ -21,7 +21,7 @@
 	 
 	 <view class="outline-box">
 	 	<view class="outline1">
-	 		序号
+	 		
 	 	</view>
 	 </view>
 </view>
@@ -77,7 +77,9 @@
 	}
 	.index-button{
 		background-color:rgba(255, 255, 255, 0.4);
-		height: 40%;
+		height: 100%;
+		width: 100%;
+		position: fixed;
 	}
 	.swiper {
 		height: 300rpx;
@@ -95,5 +97,6 @@
 		margin-bottom: 50rpx;
 		margin-left: 50rpx;
 		margin-right: 50rpx;
+		margin-top: 30%
 	}
 </style>
