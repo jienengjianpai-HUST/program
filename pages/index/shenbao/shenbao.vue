@@ -1,7 +1,10 @@
 <template>
-	<view class="box">
-		<view class="form-box">
+	<view class="box font_constrain">
 			
+		<image src="../../../static/background/07_mohu.png" style="width:100%;height: 100%; z-index: -1;position: fixed;opacity: 0.9;"></image>
+		<view class="back_button" @click="toPageIndex()">
+		</view>
+		<view class="item-box">
 		<form @submit="onSubmit" >
 			<view class="name-box">申报人姓名：
 			<input type="text" name="nickname" placeholder="请输入" class="input-box"></view>
@@ -14,63 +17,143 @@
 			<view class="sum-box">活动所需人数：
 			<input type="text" name="sum" placeholder="请输入" class="input-box"></view>
 			<view class="time-box">报名时间：
-			<uni-datetime-picker v-model="datetimerange1" type="datetimerange" rangeSeparator="至" />
+			<view class="time-choice">
+				<uni-datetime-picker type="datetime" :clear-icon="false" v-model="sign_start" hideSecond="true" @change="changeLog(sign_start)"/>
+				<uni-datetime-picker type="datetime" :clear-icon="false" v-model="sign_end" hideSecond="true"  @change="changeLog(sign_end)"/>
+			</view>
+					
 			</view>
 			
 			<view class="time-box">活动时间：
-			<uni-datetime-picker v-model="datetimerange2" type="datetimerange" rangeSeparator="至"  />
+			<view class="time-choice">
+				<uni-datetime-picker type="datetime" :clear-icon="false" v-model="pro_start" hideSecond="true" @change="changeLog(pro_start)"/>
+				<uni-datetime-picker type="datetime" :clear-icon="false" v-model="pro_end" hideSecond="true" @change="changeLog(pro_end)"/>
 			</view>
-			
+					
+			</view>
+
 			<view class="content-box">活动内容：
 			<input type="text" name="content" placeholder="活动时间写在里面" class="input-box-large"></view>
-			<button form-type="submit">开始报名</button>
+			<button form-type="submit">开始申报</button>		
 		</form>
-		</view>
-			
+		</view>	
 	</view>
 </template>
 
 <script>
+	import student_id_validation from '../../common_js/validation_funcs.js'
 	export default {
 		data() {
 			return {
 				single: '',
+				sign_start:'',
+				sign_end:'',
+				pro_start:'',
+				pro_end:'',
 				datetimesingle: '',
 				range: ['2021-02-1', '2021-3-28'],
 				datetimerange1: [],
 				datetimerange2: [],
 				start: Date.now() - 1000000000,
-				end: Date.now() + 1000000000
+				end: Date.now() + 1000000000,
 			}
 		},
 
 
 		methods:{
-			change(e) {
-				this.single = e
-				console.log('change事件:', this.single = e);
+			toPageIndex(){
+				uni.switchTab({
+					url:"/pages/index/index"
+				})
 			},
+
 			changeLog(e) {
-				console.log('change事件:', e);
+				console.log(e);
+				
 			},
-			maskClick(e){
-				console.log('maskClick事件:', e);
-			},
+			
 			onSubmit(e){
 				console.log(e);
 				let detail=e.detail.value;
-				this.pushCloud2(detail)
-			},
-			pushCloud2(detail){
+				if (detail.nickname== ""){
+					uni.showToast({
+						title:"姓名不能为空!",
+						icon:'error'
+					})
+					return
+				}
+				if (detail.student_id== ""){
+					uni.showToast({
+						title:"学号不能为空!",
+						icon:'error'
+					})
+					return
+				}
+				else if (!(student_id_validation.student_id_validation(detail.student_id)))
+				{
+					uni.showToast({
+						title:"学号格式错误",
+						icon:'error'
+					})
+					return
+				}
+				if (detail.emaill== ""){
+					uni.showToast({
+						title:"邮箱不能为空!",
+						icon:'error'
+					})
+					return
+				}
+				if (detail.title== ""){
+					uni.showToast({
+						title:"标题不能为空!",
+						icon:'error'
+					})
+					return
+				}
+				if (detail.sum== ""){
+					uni.showToast({
+						title:"人数不能为空!",
+						icon:'error'
+					})
+					return
+				}
+				if (detail.content== ""){
+					uni.showToast({
+						title:"未填写内容!",
+						icon:'error'
+					})
+					return
+				}
+				if (this.sign_start== ""||this.sign_end== ""||this.pro_start== ""||this.pro_end== ""){
+					uni.showToast({
+						title:"未选择时间!",
+						icon:'error'
+					})
+					return
+				}
 				uniCloud.callFunction({
-					name:"AddToProject",
-					data:{
-						detail
-					}
-				}).then(res=>{
-					console.log(res)
-				})
-			},
+						name:"AddToProject",
+						data:{
+							detail,
+							sign_start:this.sign_start,
+							sign_end:this.sign_end,
+							pro_start:this.pro_start,
+							pro_end:this.pro_end,
+							
+						}
+					}).then(res=>{
+						console.log(res)
+						uni.showToast({
+							title:"申报成功!",
+							icon:'success'
+						}),
+						uni.switchTab({
+							url:"/pages/index/index"
+						})
+						
+					})
+				},
 		}
 	}
 </script>
@@ -81,22 +164,65 @@
 	margin: 50rpx;
 	padding-bottom: 300rpx;
 }
+@font-face {
+	font-family:Alimama_ShuHeiTi_Bold ;
+	font-weight:normal ;
+	src: url("/font/Alimama_ShuHeiTi_Bold.ttf") format("truetype");
+	}
+.font_constrain {
+	font-family: Alimama_ShuHeiTi_Bold;
+}
+.time-choice{
+	display: flex;
+	
+}
+.box{
+	position: fixed;
+	z-index: 0;
+	width: 100%;
+	height: 100%;
+		
+}
+.back_button{
+	width:0;
+	height:0;
+	border-top:30rpx solid transparent;
+	border-right:30rpx solid black;
+	border-bottom:30rpx solid transparent;
+	padding: 1rpx;
+}
+.item-box{
+	margin: 30rpx;
+
+}
 .name-box{
 	display: flex;
+	margin-bottom: 40rpx;
 }
 .studentid-box{
 	display: flex;
+	margin-bottom: 40rpx;
 }
 .email-box{
 	display: flex;
+	margin-bottom: 40rpx;
 }
 .title-box{
 	display: flex;
+	margin-bottom: 40rpx;
 }
 .sum-box{
 	display: flex;
+	margin-bottom: 40rpx;
 }
 .content-box{
+	margin-bottom: 40rpx;
+	background-color:rgba(255, 255, 255, 0.4); 
+	border: white;
+	border-radius: 12px;
+	margin-top: 40rpx;
+}
+.time-box{
 	
 }
 .input-box{
@@ -104,8 +230,12 @@
 	border-radius: 12px;
 }
 .input-box-large{
-	border: 3rpx solid;
+	border: 3rpx ;
 	border-radius: 12px;
 	padding-bottom: 300rpx;
+}
+button{
+	float: right;
+	background-color: greenyellow;
 }
 </style>
