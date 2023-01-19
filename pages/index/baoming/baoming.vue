@@ -25,7 +25,7 @@
 				name:"ShowProject",
 				data:{}
 			}).then(res=>{
-				console.log(res)
+				//console.log(res)
 				this.userArr=res.result.data
 			})
 		},

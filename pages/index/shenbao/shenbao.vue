@@ -34,13 +34,14 @@
 
 			<view class="content-box">活动内容：
 			<input type="text" name="content" placeholder="活动时间写在里面" class="input-box-large"></view>
-			<button form-type="submit">开始报名</button>		
+			<button form-type="submit">开始申报</button>		
 		</form>
 		</view>	
 	</view>
 </template>
 
 <script>
+	import student_id_validation from '../../common_js/validation_funcs.js'
 	export default {
 		data() {
 			return {
@@ -74,6 +75,63 @@
 			onSubmit(e){
 				console.log(e);
 				let detail=e.detail.value;
+				if (detail.nickname== ""){
+					uni.showToast({
+						title:"姓名不能为空!",
+						icon:'error'
+					})
+					return
+				}
+				if (detail.student_id== ""){
+					uni.showToast({
+						title:"学号不能为空!",
+						icon:'error'
+					})
+					return
+				}
+				else if (!(student_id_validation.student_id_validation(detail.student_id)))
+				{
+					uni.showToast({
+						title:"学号格式错误",
+						icon:'error'
+					})
+					return
+				}
+				if (detail.emaill== ""){
+					uni.showToast({
+						title:"邮箱不能为空!",
+						icon:'error'
+					})
+					return
+				}
+				if (detail.title== ""){
+					uni.showToast({
+						title:"标题不能为空!",
+						icon:'error'
+					})
+					return
+				}
+				if (detail.sum== ""){
+					uni.showToast({
+						title:"人数不能为空!",
+						icon:'error'
+					})
+					return
+				}
+				if (detail.content== ""){
+					uni.showToast({
+						title:"未填写内容!",
+						icon:'error'
+					})
+					return
+				}
+				if (this.sign_start== ""||this.sign_end== ""||this.pro_start== ""||this.pro_end== ""){
+					uni.showToast({
+						title:"未选择时间!",
+						icon:'error'
+					})
+					return
+				}
 				uniCloud.callFunction({
 						name:"AddToProject",
 						data:{
@@ -86,6 +144,14 @@
 						}
 					}).then(res=>{
 						console.log(res)
+						uni.showToast({
+							title:"申报成功!",
+							icon:'success'
+						}),
+						uni.switchTab({
+							url:"/pages/index/index"
+						})
+						
 					})
 				},
 		}
