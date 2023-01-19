@@ -133,6 +133,7 @@
 							this.remeber_password_or_not()
 							this.load_user_infos()
 							uni.switchTab({
+								//url:'/pages/index/index'
 								url:'/pages/index/index'
 							})
 						}
@@ -170,7 +171,8 @@
 					// console.log(i)
 					if (user_datas[i] != undefined)
 					{
-						getApp().globalData.user_infos[i] = user_datas[i]
+						getApp().globalData.user_infos[i] = user_datas[i];
+						
 					}
 				}
 				console.log(getApp().globalData.user_infos)

@@ -16,7 +16,7 @@
     <view class="index-button" >
 		<button  class="button" type="default" @click="navigateToNewPage1">项目申报</button>
 		<button  class="button" type="default" @click="navigateToNewPage2">项目报名</button>
-		<button  class="button" type="default" @click="navigateToNewPage3">我的项目</button>
+		<button  class="button" type="default" @click="navigateToNewPage3(Userinfo._id)">我的项目</button>
      </view>
 	 
 	 <view class="outline-box">
@@ -32,8 +32,13 @@
 	export default {
 		data() {
 			return {
-				
+				Userinfo:{},
 			}
+		},
+		onLoad() {
+			let Userinfo = getApp().globalData.user_infos;
+			console.log(Userinfo);
+			this.Userinfo=Userinfo;
 		},
 		methods: {
 			navigateToNewPage1(){
@@ -46,9 +51,9 @@
 					url:'/pages/index/baoming/baoming'
 				})
 			},
-			navigateToNewPage3(){
+			navigateToNewPage3(e){
 				uni.navigateTo({
-					url:'/pages/index/wodexiangmu/wodexiangmu'
+					url:'/pages/index/wodexiangmu/wodexiangmu?id='+e
 				})
 			}
 		}
