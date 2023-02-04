@@ -1,15 +1,16 @@
 <template>
-	<view class="my-container gradient"   style="position: fixed; top: 0; left: 0; right: 0; bottom: 0">
-		<image mode="heightFix" src="../../static/HUST碳风格化背景.jpeg" style="position: absolute;top: 0%;height: 100%; z-index: -1;"></image>
+	<view class="my-container pic_background"   style="position: fixed; top: 0; left: 0; right: 0; bottom: 0">
 		<view class="header_info">
-			<image :src="user_avatar_addr" class="avatar_like_item" id="my_avatar"></image>
-			<view id="my_name_and_id">
-				<view id="my_username">
-					<text>{{username}}</text>
-				</view>
-				<view id="my_student_id">
-					<text>学号：{{student_id}}</text>
-				</view>
+			<image :src="user_avatar_addr" id="my_avatar"></image>
+			<view id="my_username">
+				<text>{{username}}</text>
+			</view>
+			<image mode="aspectFill" :src="user_gender_image" style="height: 21rpx;width: 21rpx;position: relative;top: 28rpx;left: 0rpx;"></image>
+			<view id="my_student_id">
+				<text>学号：{{student_id}}</text>
+			</view>
+			<view id="my_setting_button" @click="my_setting">
+				
 			</view>
 		</view>
 		<view class="my_data_always_display">
@@ -83,6 +84,7 @@
 			return {
 				user_property:[],
 				user_avatar_addr :"../../static/initial_avatar.jpg",
+				user_gender_image:"../../static/gender_images/男.png",
 				username: "我的昵称",
 				student_id: "U2021XXXXX",
 				user_carbon_score: 32,
@@ -155,6 +157,11 @@
 			};
 		},
 		methods :{
+			my_setting () {
+				uni.navigateTo({
+					url:"/pages/my/my_setting"
+				})
+			},
 			my_check_ranking () {
 				this.my_nav_bar_select = "ranking"
 				this.check_change_select_nav_bar()
@@ -198,17 +205,23 @@
 
 <style lang="scss">
 	.header_info {
-		height: 240rpx;
-		margin-top: 80rpx;
-		margin-left: 30rpx;
+		height: 212rpx;
+		width: 674rpx;
+		margin-top: 65rpx;
+		margin-left: 38rpx;
+		border-radius: 50rpx;
+		border: 1rpx #797979 solid;
+		background-color: rgba(255, 255, 255, 0.5);
 	}
 	
-	.avatar_like_item {
+	#my_avatar {
 		float: left;
+		display: flexbox;
 		border-radius: 50%;
-		height: 200rpx;
-		width: 200rpx;
-		margin-right: 40rpx;
+		height: 140rpx;
+		width: 140rpx;
+		margin: 35rpx 0rpx 0 25rpx;
+		border: 4rpx #78f12f solid;
 	}
 	
 	.my_user_basic_info {
@@ -217,22 +230,50 @@
 	}
 	
 	#my_username {
-		height: 100rpx;
-		width: 600rpx;
+		display: flexbox;
+		float: left;
+		height: 84rpx;
+		width: 202rpx;
 		font-weight: bolder;
-		font-size: 60rpx;
+		font-size: 42rpx;
 		font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
-		margin-bottom: 20rpx;
+		margin: 28rpx 0 0 38rpx;
+		line-height: 83rpx;
+		// border: #21c433 solid;
 	}
 	
 	#my_student_id {
-		white-space: nowrap;
-		height: 80rpx;
-		width: 590rpx;
-		margin-left: 40rpx;
-		font-weight: bolder;
-		font-size: 45rpx;
+		display: flexbox;
+		float: left;
+		// border: solid;
+		line-height: 28rpx;
+		height: 28rpx;
+		width: 200rpx;
+		margin: 23rpx 0 0 74rpx;
+		font-weight: normal;
+		font-size: 24rpx;
 		font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+	}
+	
+	// #my_gender_icon {
+	// 	position: relative;
+	// 	top: 35rpx;
+	// 	left: 345rpx;
+	// 	height: 31rpx;
+	// 	width: 31rpx;
+	// 	background-color: #b7fd5f;
+	// 	// size: 21rpx 21rpx;
+	// 	z-index: 1;
+	// 	border: solid 2rpx black;
+	// }
+	
+	#my_setting_button {
+		position: relative;
+		top: 60rpx;
+		left: 533rpx;
+		height: 93rpx;
+		width: 93rpx;
+		// border: solid;
 	}
 	
 	#my_name_and_id {
