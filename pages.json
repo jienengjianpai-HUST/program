@@ -47,6 +47,43 @@
             }
             
         }
+		,{
+		    "path" : "pages/my/my_setting",
+		    "style" :                                                                                    
+		    {
+		        "navigationBarTitleText": "",
+		        "enablePullDownRefresh": false,
+				"navigationStyle": "custom"
+		    }
+		    
+		}
+		,{
+		    "path" : "pages/my/my_change",
+		    "style" :                                                                                    
+		    {
+		        "navigationBarTitleText": "",
+		        "enablePullDownRefresh": false,
+				"navigationStyle": "custom"
+		    }
+		}
+		,{
+		    "path" : "pages/my/my_user_protocol",
+		    "style" :                                                                                    
+		    {
+		        "navigationBarTitleText": "",
+		        "enablePullDownRefresh": false,
+				"navigationStyle": "custom"
+		    }
+		}
+		,{
+		    "path" : "pages/my/my_privacy_policy",
+		    "style" :                                                                                    
+		    {
+		        "navigationBarTitleText": "",
+		        "enablePullDownRefresh": false,
+				"navigationStyle": "custom"
+		    }
+		}
         ,{
             "path" : "pages/analyze/analyze",
             "style" :                                                                                    
