@@ -21,6 +21,11 @@
 .gradient {
   background: linear-gradient(314deg, #73c8e6, #b9fb9b ,#66f35e);
 }
+
+.pic_background{
+	background: url("background/background_07.jpeg") center top no-repeat;
+	background-size: cover;
+}
 .button{
 		font-size: 45rpx;
 		font-weight: bold;
