@@ -85,6 +85,12 @@
 			},
 			logout () {
 				console.log("Logout!")
+				uni.navigateTo({
+					url:"/pages/login/login"
+				})
+				getApp().globalData.user_infos = getApp().globalData.default_user_infos
+				// console.log(getApp().globalData.user_infos)
+				// console.log(getApp().globalData.default_user_infos)
 			}
 		}
 	}
